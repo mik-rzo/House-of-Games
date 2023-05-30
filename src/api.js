@@ -11,3 +11,11 @@ export function getReviews() {
             return res.data
         })
 }
+
+export function getUserByUsername(username) {
+    return api
+        .get(`/users/${username}`)
+        .then((res) => {
+            return res.data
+        })
+}

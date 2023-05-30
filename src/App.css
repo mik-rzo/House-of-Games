@@ -12,3 +12,11 @@ img {
   display: block;
   width: 100%;
 }
+
+img.avatar {
+  height: 50px;
+  width: 50px;
+  object-fit: cover;
+  border: solid black 1px;
+  border-radius: 50%;
+}
