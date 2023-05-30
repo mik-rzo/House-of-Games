@@ -11,3 +11,11 @@ export function getReviews() {
             return res.data
         })
 }
+
+export function getReviewByID(reviewID) {
+    return api
+        .get(`/reviews/${reviewID}`)
+        .then((res) => {
+            return res.data
+        })
+}
