@@ -7,11 +7,9 @@ export function Home() {
   const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
-    setIsLoading(true)
-    getReviews().then((data) => {
+    getReviews(setIsLoading).then((data) => {
       setReviews(data.reviews)
     })
-    setIsLoading(false)
   }, [])
 
   if (isLoading) {
