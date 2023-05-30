@@ -1,0 +1,5 @@
+export { Header } from './Header.jsx'
+export { NavBar } from './NavBar.jsx'
+export { Home } from './Home.jsx'
+export { Categories } from './Categories.jsx'
+export { Login } from './Login.jsx'
