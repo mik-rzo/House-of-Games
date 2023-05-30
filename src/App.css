@@ -1,0 +1,14 @@
+main {
+  margin: 0 auto;
+  width: min(90%, 72rem);
+}
+
+.review-card {
+  border: 2px dotted black;
+  margin: 1em;
+}
+
+img {
+  display: block;
+  width: 100%;
+}
