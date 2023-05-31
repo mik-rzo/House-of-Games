@@ -1,18 +1,28 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { getReviewByID } from '../api.js'
+import { getReviewByID, getComments } from '../api.js'
+import { CommentCard } from './CommentCard.jsx'
 
 export function SingleReview() {
   const [review, setReview] = useState({})
   const [reviewIsLoading, setReviewIsLoading] = useState(false)
+  const [comments, setComments] = useState([])
+  const [commentsIsLoading, setCommentsIsLoading] = useState(false)
 
   const { review_id } = useParams()
 
   useEffect(() => {
     setReviewIsLoading(true)
+    setCommentsIsLoading(true)
+
     getReviewByID(review_id).then((data) => {
       setReview(data.review)
       setReviewIsLoading(false)
+    })
+
+    getComments(review_id).then((data) => {
+      setComments(data.comments)
+      setCommentsIsLoading(false)
     })
   }, [])
 
@@ -23,15 +33,20 @@ export function SingleReview() {
   return (
     <main>
       <img src={review.review_img_url} alt={review.title} />
-      <h3>{review.title}</h3>
+      <h2>{review.title}</h2>
       <b>{review.category}</b>
       <p>Created by {review.designer}</p>
-      <h4>{review.owner}</h4>
+      <h3>{review.owner}</h3>
       <article>
         <p>{review.review_body}</p>
       </article>
       <p>Votes: {review.votes}</p>
       <p>Comments: {review.comment_count}</p>
+      <>{commentsIsLoading ? <p>'Loading...'</p> : <ul>{comments.map((comment) => {
+        return <li key={comment.comment_id}>
+            <CommentCard comment={comment}/>
+        </li>
+      })}</ul>}</>
     </main>
   )
 }

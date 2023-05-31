@@ -26,3 +26,11 @@ export function getUserByUsername(username) {
             return res.data
         })
 }
+
+export function getComments(reviewID) {
+    return api
+        .get(`/reviews/${reviewID}/comments`)
+        .then((res) => {
+            return res.data
+        })
+}
