@@ -12,6 +12,13 @@ export function getReviews() {
         })
 }
 
+export function getReviewByID(reviewID) {
+    return api
+        .get(`/reviews/${reviewID}`)
+        .then((res) => {
+            return res.data
+        })
+}
 export function getUserByUsername(username) {
     return api
         .get(`/users/${username}`)
