@@ -19,6 +19,15 @@ export function getReviewByID(reviewID) {
             return res.data
         })
 }
+
+export function voteReview(reviewID, vote) {
+    return api
+        .patch(`/reviews/${reviewID}`, vote)
+        .then((res) => {
+            return res.data
+        })
+}
+
 export function getUserByUsername(username) {
     return api
         .get(`/users/${username}`)
