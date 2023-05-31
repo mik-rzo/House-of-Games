@@ -1,5 +1,6 @@
 export { Header } from './Header.jsx'
 export { NavBar } from './NavBar.jsx'
 export { Home } from './Home.jsx'
+export { SingleReview } from './SingleReview.jsx'
 export { Categories } from './Categories.jsx'
 export { Login } from './Login.jsx'
