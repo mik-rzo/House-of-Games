@@ -20,3 +20,8 @@ img.avatar {
   border: solid black 1px;
   border-radius: 50%;
 }
+
+.vote {
+  background-color: transparent;
+  border: 1px black dotted;
+}

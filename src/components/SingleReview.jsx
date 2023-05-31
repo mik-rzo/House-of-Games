@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { getReviewByID, getComments } from '../api.js'
+import { VoteButton } from './VoteButton.jsx'
 import { CommentCard } from './CommentCard.jsx'
 
 export function SingleReview() {
@@ -41,6 +42,7 @@ export function SingleReview() {
         <p>{review.review_body}</p>
       </article>
       <p>Votes: {review.votes}</p>
+      <VoteButton />
       <p>Comments: {review.comment_count}</p>
       <>{commentsIsLoading ? <p>'Loading...'</p> : <ul>{comments.map((comment) => {
         return <li key={comment.comment_id}>
