@@ -23,6 +23,11 @@ export function SingleReview() {
     })
 
     getComments(review_id).then((data) => {
+      data.comments = data.comments.map((currComment) => {
+        const comment = {...currComment}
+        comment.created_at = formatDate(comment.created_at)
+        return comment
+      })
       setComments(data.comments)
       setCommentsIsLoading(false)
     })
