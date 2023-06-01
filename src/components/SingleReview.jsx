@@ -1,14 +1,18 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { getReviewByID, getComments } from '../api.js'
+import { VoteButton } from './VoteButton.jsx'
 import { CommentCard } from './CommentCard.jsx'
 import { formatDate } from '../utils/formatDate.js'
+import { Alert } from './Alert.jsx'
 
 export function SingleReview() {
   const [review, setReview] = useState({})
   const [reviewIsLoading, setReviewIsLoading] = useState(false)
   const [comments, setComments] = useState([])
   const [commentsIsLoading, setCommentsIsLoading] = useState(false)
+
+  const [displayAlert, setDisplayAlert] = useState(false)
 
   const { review_id } = useParams()
 
@@ -49,12 +53,24 @@ export function SingleReview() {
         <p>{review.review_body}</p>
       </article>
       <p>Votes: {review.votes}</p>
+      <VoteButton reviewID={review.review_id} setReview={setReview} setDisplayAlert={setDisplayAlert} />
+      {displayAlert && <Alert crud='Vote' setDisplayAlert={setDisplayAlert} />}
       <p>Comments: {review.comment_count}</p>
-      <>{commentsIsLoading ? <p>'Loading...'</p> : <ul>{comments.map((comment) => {
-        return <li key={comment.comment_id}>
-            <CommentCard comment={comment}/>
-        </li>
-      })}</ul>}</>
+      <>
+        {commentsIsLoading ? (
+          <p>'Loading...'</p>
+        ) : (
+          <ul>
+            {comments.map((comment) => {
+              return (
+                <li key={comment.comment_id}>
+                  <CommentCard comment={comment} />
+                </li>
+              )
+            })}
+          </ul>
+        )}
+      </>
     </main>
   )
 }
