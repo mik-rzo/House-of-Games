@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { getReviewByID, getComments } from '../api.js'
 import { CommentCard } from './CommentCard.jsx'
+import { formatDate } from '../utils/formatDate.js'
 
 export function SingleReview() {
   const [review, setReview] = useState({})
@@ -16,6 +17,7 @@ export function SingleReview() {
     setCommentsIsLoading(true)
 
     getReviewByID(review_id).then((data) => {
+      data.review.created_at = formatDate(data.review.created_at)
       setReview(data.review)
       setReviewIsLoading(false)
     })
@@ -37,6 +39,7 @@ export function SingleReview() {
       <b>{review.category}</b>
       <p>Created by {review.designer}</p>
       <h3>{review.owner}</h3>
+      <p>{review.created_at}</p>
       <article>
         <p>{review.review_body}</p>
       </article>
