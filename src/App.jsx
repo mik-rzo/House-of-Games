@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { Header, NavBar, Home, SingleReview, Categories, Login } from './components/index.js'
 import './App.css'
