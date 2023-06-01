@@ -4,9 +4,13 @@ const api = axios.create({
     baseURL: 'https://house-of-games-7nlp.onrender.com/api'
 })
 
-export function getReviews() {
+export function getReviews(queries) {
+    let endpoint = '/reviews'
+    if (queries[0]) {
+        endpoint += `?category=${queries[0]}`
+    }
     return api
-        .get('/reviews')
+        .get(endpoint)
         .then((res) => {
             return res.data
         })
@@ -39,6 +43,14 @@ export function getUserByUsername(username) {
 export function getComments(reviewID) {
     return api
         .get(`/reviews/${reviewID}/comments`)
+        .then((res) => {
+            return res.data
+        })
+}
+
+export function getCategories() {
+    return api
+        .get('/categories')
         .then((res) => {
             return res.data
         })
