@@ -43,3 +43,8 @@ export function getUsers() {
             return res.data
         })
 }
+
+export function postComment(reviewID, comment) {
+    return api
+    .post(`/reviews/${reviewID}/comments`, comment)
+}

@@ -1,11 +1,16 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import { getReviewByID, getComments, getUserByUsername } from '../api.js'
+import { CommentForm } from './CommentForm.jsx'
 import { CommentCard } from './CommentCard.jsx'
+import { UserContext } from '../contexts/User.jsx'
 import { formatDate } from '../utils/formatDate.js'
+import { isLoggedOut } from '../utils/isLoggedOut.js'
 import { Avatar } from './Avatar.jsx'
 
 export function SingleReview() {
+  const { userLogin } = useContext(UserContext)
+
   const [review, setReview] = useState({})
   const [reviewIsLoading, setReviewIsLoading] = useState(false)
   const [avatarUrl, setAvatarUrl] = useState('')
@@ -18,29 +23,33 @@ export function SingleReview() {
     setReviewIsLoading(true)
     setCommentsIsLoading(true)
 
-    getReviewByID(review_id).then((data) => {
-      data.review.created_at = formatDate(data.review.created_at)
-      return Promise.all([getUserByUsername(data.review.owner), data.review])
-    }).then(([response, review]) => {
-      setReview(review)
-      setAvatarUrl(response.user.avatar_url)
-      setReviewIsLoading(false)
-    })
-
-    getComments(review_id).then((data) => {
-      data.comments = data.comments.map(async (currComment) => {
-        const comment = {...currComment}
-        comment.created_at = formatDate(comment.created_at)
-        comment.avatar_url = await getUserByUsername(comment.author).then((data) => {
-          return data.user.avatar_url
-        })
-        return comment
+    getReviewByID(review_id)
+      .then((data) => {
+        data.review.created_at = formatDate(data.review.created_at)
+        return Promise.all([getUserByUsername(data.review.owner), data.review])
       })
-      return Promise.all(data.comments)
-    }).then((comments) => {
-      setComments(comments)
-      setCommentsIsLoading(false)
-    })
+      .then(([response, review]) => {
+        setReview(review)
+        setAvatarUrl(response.user.avatar_url)
+        setReviewIsLoading(false)
+      })
+
+    getComments(review_id)
+      .then((data) => {
+        data.comments = data.comments.map(async (currComment) => {
+          const comment = { ...currComment }
+          comment.created_at = formatDate(comment.created_at)
+          comment.avatar_url = await getUserByUsername(comment.author).then((data) => {
+            return data.user.avatar_url
+          })
+          return comment
+        })
+        return Promise.all(data.comments)
+      })
+      .then((comments) => {
+        setComments(comments)
+        setCommentsIsLoading(false)
+      })
   }, [])
 
   if (reviewIsLoading) {
@@ -54,18 +63,31 @@ export function SingleReview() {
       <b>{review.category}</b>
       <p>Created by {review.designer}</p>
       <h3>{review.owner}</h3>
-      <Avatar avatarUrl={avatarUrl}/>
+      <Avatar avatarUrl={avatarUrl} />
       <p>{review.created_at}</p>
       <article>
         <p>{review.review_body}</p>
       </article>
       <p>Votes: {review.votes}</p>
+      {!isLoggedOut(userLogin) && (
+        <CommentForm setComments={setComments} reviewID={review.review_id} setReview={setReview} />
+      )}
       <p>Comments: {review.comment_count}</p>
-      <>{commentsIsLoading ? <p>'Loading...'</p> : <ul>{comments.map((comment) => {
-        return <li key={comment.comment_id}>
-            <CommentCard comment={comment}/>
-        </li>
-      })}</ul>}</>
+      <>
+        {commentsIsLoading ? (
+          <p>'Loading...'</p>
+        ) : (
+          <ul>
+            {comments.map((comment) => {
+              return (
+                <li key={comment.comment_id}>
+                  <CommentCard comment={comment} />
+                </li>
+              )
+            })}
+          </ul>
+        )}
+      </>
     </main>
   )
 }
