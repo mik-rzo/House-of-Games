@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { getReviewByID, getComments } from '../api.js'
 import { VoteButton } from './VoteButton.jsx'
 import { CommentCard } from './CommentCard.jsx'
+import { formatDate } from '../utils/formatDate.js'
 import { Alert } from './Alert.jsx'
 
 export function SingleReview() {
@@ -20,11 +21,17 @@ export function SingleReview() {
     setCommentsIsLoading(true)
 
     getReviewByID(review_id).then((data) => {
+      data.review.created_at = formatDate(data.review.created_at)
       setReview(data.review)
       setReviewIsLoading(false)
     })
 
     getComments(review_id).then((data) => {
+      data.comments = data.comments.map((currComment) => {
+        const comment = {...currComment}
+        comment.created_at = formatDate(comment.created_at)
+        return comment
+      })
       setComments(data.comments)
       setCommentsIsLoading(false)
     })
@@ -41,6 +48,7 @@ export function SingleReview() {
       <b>{review.category}</b>
       <p>Created by {review.designer}</p>
       <h3>{review.owner}</h3>
+      <p>{review.created_at}</p>
       <article>
         <p>{review.review_body}</p>
       </article>
