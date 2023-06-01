@@ -28,12 +28,17 @@ export function SingleReview() {
     })
 
     getComments(review_id).then((data) => {
-      data.comments = data.comments.map((currComment) => {
+      data.comments = data.comments.map(async (currComment) => {
         const comment = {...currComment}
         comment.created_at = formatDate(comment.created_at)
+        comment.avatar_url = await getUserByUsername(comment.author).then((data) => {
+          return data.user.avatar_url
+        })
         return comment
       })
-      setComments(data.comments)
+      return Promise.all(data.comments)
+    }).then((comments) => {
+      setComments(comments)
       setCommentsIsLoading(false)
     })
   }, [])
