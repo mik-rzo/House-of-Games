@@ -30,7 +30,7 @@ export function Home() {
 
   return (
     <main>
-      <ul>
+      <ul id='home-page'>
         {reviews.map((review) => {
           return (
             <li key={review.review_id} className='review-card'>
