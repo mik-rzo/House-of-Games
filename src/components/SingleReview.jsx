@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import { getReviewByID, getComments } from '../api.js'
 import { VoteButton } from './VoteButton.jsx'
 import { CommentCard } from './CommentCard.jsx'
+import { Alert } from './Alert.jsx'
 
 export function SingleReview() {
   const [review, setReview] = useState({})
@@ -43,12 +44,23 @@ export function SingleReview() {
       </article>
       <p>Votes: {review.votes}</p>
       <VoteButton />
+      <Alert crud='Vote' />
       <p>Comments: {review.comment_count}</p>
-      <>{commentsIsLoading ? <p>'Loading...'</p> : <ul>{comments.map((comment) => {
-        return <li key={comment.comment_id}>
-            <CommentCard comment={comment}/>
-        </li>
-      })}</ul>}</>
+      <>
+        {commentsIsLoading ? (
+          <p>'Loading...'</p>
+        ) : (
+          <ul>
+            {comments.map((comment) => {
+              return (
+                <li key={comment.comment_id}>
+                  <CommentCard comment={comment} />
+                </li>
+              )
+            })}
+          </ul>
+        )}
+      </>
     </main>
   )
 }
