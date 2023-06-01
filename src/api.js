@@ -34,3 +34,11 @@ export function getComments(reviewID) {
             return res.data
         })
 }
+
+export function getUsers() {
+    return api
+        .get('/users')
+        .then((res) => {
+            return res.data
+        })
+}
