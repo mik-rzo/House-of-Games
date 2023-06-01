@@ -20,9 +20,9 @@ export function getReviewByID(reviewID) {
         })
 }
 
-export function voteReview(reviewID, vote) {
+export function voteReview(reviewID, voteRequest) {
     return api
-        .patch(`/reviews/${reviewID}`, vote)
+        .patch(`/reviews/${reviewID}`, voteRequest)
         .then((res) => {
             return res.data
         })

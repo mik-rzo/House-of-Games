@@ -11,6 +11,8 @@ export function SingleReview() {
   const [comments, setComments] = useState([])
   const [commentsIsLoading, setCommentsIsLoading] = useState(false)
 
+  const [displayAlert, setDisplayAlert] = useState(false)
+
   const { review_id } = useParams()
 
   useEffect(() => {
@@ -43,8 +45,8 @@ export function SingleReview() {
         <p>{review.review_body}</p>
       </article>
       <p>Votes: {review.votes}</p>
-      <VoteButton />
-      <Alert crud='Vote' />
+      <VoteButton reviewID={review.review_id} setReview={setReview} setDisplayAlert={setDisplayAlert} />
+      {displayAlert && <Alert crud='Vote' setDisplayAlert={setDisplayAlert} />}
       <p>Comments: {review.comment_count}</p>
       <>
         {commentsIsLoading ? (

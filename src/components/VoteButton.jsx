@@ -1,11 +1,33 @@
 import { useState } from 'react'
+import { voteReview } from '../api.js'
 
-export function VoteButton() {
-  const [vote, setVote] = useState(0)
+export function VoteButton({ reviewID, setReview, setDisplayAlert }) {
+  function vote(incVote) {
+    const req = { inc_votes: incVote }
+    setReview((review) => {
+      // optimistic rendering
+      const updatedReview = { ...review }
+      updatedReview.votes += incVote
+      return updatedReview
+    })
+    voteReview(reviewID, req)
+      .then(() => {
+        return
+      })
+      .catch(() => {
+        setReview((review) => {
+          // undo optimistic rendering
+          const updatedReview = { ...review }
+          updatedReview.votes -= incVote
+          return updatedReview
+        })
+        setDisplayAlert(true)
+      })
+  }
 
   return (
     <>
-      <button className='vote'>
+      <button onClick={() => vote(1)} className='vote'>
         <svg
           id='upvote'
           fill='#000000'
@@ -16,7 +38,7 @@ export function VoteButton() {
           <path d='M4 14h4v7a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1v-7h4a1.001 1.001 0 0 0 .781-1.625l-8-10c-.381-.475-1.181-.475-1.562 0l-8 10A1.001 1.001 0 0 0 4 14z' />
         </svg>
       </button>
-      <button className='vote'>
+      <button onClick={() => vote(-1)} className='vote'>
         <svg
           id='downvote'
           fill='#000000'
