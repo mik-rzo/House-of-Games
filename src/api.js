@@ -19,6 +19,7 @@ export function getReviewByID(reviewID) {
             return res.data
         })
 }
+
 export function getUserByUsername(username) {
     return api
         .get(`/users/${username}`)

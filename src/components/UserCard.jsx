@@ -3,12 +3,11 @@ import { UserContext } from '../contexts/User.jsx'
 import { Avatar } from './Avatar.jsx'
 
 export function UserCard({ user }) {
-  const { userLogin, setUserLogin } = useContext(UserContext)
-  console.log(userLogin)
+  const { setUserLogin } = useContext(UserContext)
   return (
     <article>
       <h3>{user.username}</h3>
-      <Avatar username={user.username} />
+      <Avatar avatarUrl={user.avatar_url} />
       <button onClick={() => setUserLogin(user)}>Login</button>
     </article>
   )

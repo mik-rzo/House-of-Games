@@ -21,6 +21,7 @@ export function NavBar() {
       ) : (
         <li>
           <b>{userLogin.username}</b>
+          <Avatar avatarUrl={userLogin.avatar_url}/>
           <button onClick={() => setUserLogin({})}>Logout</button>
         </li>
       )}

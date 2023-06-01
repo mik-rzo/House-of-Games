@@ -10,7 +10,7 @@ export function ReviewCard({ review }) {
         <b>{review.category}</b>
         <p>Created by {review.designer}</p>
         <h4>{review.owner}</h4>
-        <Avatar username={review.owner} />
+        <Avatar avatarUrl={review.avatar_url} />
         <p>{review.created_at}</p>
         <p>Votes: {review.votes}</p>
         <p>Comments: {review.comment_count}</p>

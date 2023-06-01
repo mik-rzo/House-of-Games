@@ -1,12 +1,14 @@
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { getReviewByID, getComments } from '../api.js'
+import { getReviewByID, getComments, getUserByUsername } from '../api.js'
 import { CommentCard } from './CommentCard.jsx'
 import { formatDate } from '../utils/formatDate.js'
+import { Avatar } from './Avatar.jsx'
 
 export function SingleReview() {
   const [review, setReview] = useState({})
   const [reviewIsLoading, setReviewIsLoading] = useState(false)
+  const [avatarUrl, setAvatarUrl] = useState('')
   const [comments, setComments] = useState([])
   const [commentsIsLoading, setCommentsIsLoading] = useState(false)
 
@@ -18,7 +20,10 @@ export function SingleReview() {
 
     getReviewByID(review_id).then((data) => {
       data.review.created_at = formatDate(data.review.created_at)
-      setReview(data.review)
+      return Promise.all([getUserByUsername(data.review.owner), data.review])
+    }).then(([response, review]) => {
+      setReview(review)
+      setAvatarUrl(response.user.avatar_url)
       setReviewIsLoading(false)
     })
 
@@ -44,6 +49,7 @@ export function SingleReview() {
       <b>{review.category}</b>
       <p>Created by {review.designer}</p>
       <h3>{review.owner}</h3>
+      <Avatar avatarUrl={avatarUrl}/>
       <p>{review.created_at}</p>
       <article>
         <p>{review.review_body}</p>

@@ -17,7 +17,6 @@ export function Login() {
       <h2>Login page</h2>
       <ul>
         {users.map((user) => {
-          console.log(user)
           return (
             <li key={user.username}>
               <UserCard user={user} />
