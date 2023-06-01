@@ -11,7 +11,7 @@ export function Home() {
     setIsLoading(true)
     getReviews().then((data) => {
       data.reviews = data.reviews.map((currReview) => {
-        const review = {...currReview}
+        const review = { ...currReview }
         review.created_at = formatDate(review.created_at)
         return review
       })
@@ -30,7 +30,6 @@ export function Home() {
 
   return (
     <main>
-      <h2>Home page</h2>
       <ul>
         {reviews.map((review) => {
           return (
