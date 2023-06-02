@@ -2,14 +2,18 @@ import { useState, useEffect } from 'react'
 import { getReviews, getUserByUsername } from '../api.js'
 import { ReviewCard } from './ReviewCard.jsx'
 import { formatDate } from '../utils/formatDate.js'
+import { useSearchParams } from 'react-router-dom'
 
 export function Home() {
   const [reviews, setReviews] = useState([])
   const [isLoading, setIsLoading] = useState(false)
 
+  const [searchParams, setSearchParams] = useSearchParams();
+  const categoryQuery = searchParams.get('category')
+
   useEffect(() => {
     setIsLoading(true)
-    getReviews()
+    getReviews(categoryQuery)
       .then((data) => {
         data.reviews = data.reviews.map(async (currReview) => {
           const review = { ...currReview }
@@ -25,7 +29,7 @@ export function Home() {
         setReviews(reviews)
         setIsLoading(false)
       })
-  }, [])
+  }, [searchParams])
 
   if (isLoading) {
     return (
