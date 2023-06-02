@@ -75,9 +75,16 @@ export function SingleReview() {
         <p>{review.review_body}</p>
       </article>
       <p>Votes: {reviewVoteCount}</p>
-      <VoteButton id={review.review_id} type='review' setVoteCount={setReviewVoteCount} setDisplayAlert={setDisplayAlert} />
+      <VoteButton
+        id={review.review_id}
+        type='review'
+        setVoteCount={setReviewVoteCount}
+        setDisplayAlert={setDisplayAlert}
+      />
       {displayAlert && <Alert severity='error' crud='Vote' setDisplayAlert={setDisplayAlert} />}
-      {!isLoggedOut(userLogin) && (
+      {isLoggedOut(userLogin) ? (
+        <p><b>Login to post a comment</b></p>
+      ) : (
         <CommentForm setComments={setComments} reviewID={review.review_id} setReview={setReview} />
       )}
       <p>Comments: {review.comment_count}</p>
