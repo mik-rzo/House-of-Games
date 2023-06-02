@@ -6,16 +6,21 @@ import { CommentCard } from './CommentCard.jsx'
 import { UserContext } from '../contexts/User.jsx'
 import { formatDate } from '../utils/formatDate.js'
 import { isLoggedOut } from '../utils/isLoggedOut.js'
+import { VoteButton } from './VoteButton.jsx'
+import { Alert } from './Alert.jsx'
 import { Avatar } from './Avatar.jsx'
 
 export function SingleReview() {
   const { userLogin } = useContext(UserContext)
 
   const [review, setReview] = useState({})
+  const [reviewVoteCount, setReviewVoteCount] = useState(0)
   const [reviewIsLoading, setReviewIsLoading] = useState(false)
   const [avatarUrl, setAvatarUrl] = useState('')
   const [comments, setComments] = useState([])
   const [commentsIsLoading, setCommentsIsLoading] = useState(false)
+
+  const [displayAlert, setDisplayAlert] = useState(false)
 
   const { review_id } = useParams()
 
@@ -30,6 +35,7 @@ export function SingleReview() {
       })
       .then(([response, review]) => {
         setReview(review)
+        setReviewVoteCount(review.votes)
         setAvatarUrl(response.user.avatar_url)
         setReviewIsLoading(false)
       })
@@ -68,7 +74,9 @@ export function SingleReview() {
       <article>
         <p>{review.review_body}</p>
       </article>
-      <p>Votes: {review.votes}</p>
+      <p>Votes: {reviewVoteCount}</p>
+      <VoteButton id={review.review_id} type='review' setVoteCount={setReviewVoteCount} setDisplayAlert={setDisplayAlert} />
+      {displayAlert && <Alert crud='Vote' setDisplayAlert={setDisplayAlert} />}
       {!isLoggedOut(userLogin) && (
         <CommentForm setComments={setComments} reviewID={review.review_id} setReview={setReview} />
       )}

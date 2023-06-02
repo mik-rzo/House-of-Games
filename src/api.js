@@ -20,6 +20,14 @@ export function getReviewByID(reviewID) {
         })
 }
 
+export function patchReviewVote(reviewID, voteRequest) {
+    return api
+        .patch(`/reviews/${reviewID}`, voteRequest)
+        .then((res) => {
+            return res.data
+        })
+}
+
 export function getUserByUsername(username) {
     return api
         .get(`/users/${username}`)
@@ -46,5 +54,13 @@ export function getUsers() {
 
 export function postComment(reviewID, comment) {
     return api
-    .post(`/reviews/${reviewID}/comments`, comment)
+        .post(`/reviews/${reviewID}/comments`, comment)
+}
+
+export function patchCommentVote(commentID, voteRequest) {
+    return api
+        .patch(`/comments/${commentID}`, voteRequest)
+        .then((res) => {
+            return res.data
+        })
 }

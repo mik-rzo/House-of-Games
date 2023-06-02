@@ -20,3 +20,64 @@ img.avatar {
   border: solid black 1px;
   border-radius: 50%;
 }
+
+.vote {
+  background-color: transparent;
+  border: 1px black dotted;
+}
+
+#upvote {
+  transition: fill 0.5s;
+}
+
+.vote:hover > #upvote,
+.vote:focus > #upvote {
+  fill: #099396;
+}
+
+#upvote:active {
+  animation-name: upvote;
+  animation-duration: 0.3s;
+}
+
+@keyframes upvote {
+  20% {
+    fill: #73bda8;
+  }
+  50% {
+    fill: #099396;
+  }
+  80% {
+    fill: #005f73;
+  }
+}
+
+#downvote {
+  transition: fill 0.5s;
+}
+
+.vote:hover > #downvote,
+.vote:focus > #downvote {
+  fill: #bb3f02;
+}
+
+#downvote:active {
+  animation-name: downvote;
+  animation-duration: 0.3s;
+}
+
+@keyframes downvote {
+  20% {
+    fill: #cc6b49;
+  }
+  50% {
+    fill: #bb3f02;
+  }
+  80% {
+    fill: #b02013;
+  }
+}
+
+#alert {
+  border: dashed crimson 2px;
+}
