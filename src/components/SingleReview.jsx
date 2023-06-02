@@ -28,7 +28,7 @@ export function SingleReview() {
 
     getComments(review_id).then((data) => {
       data.comments = data.comments.map((currComment) => {
-        const comment = {...currComment}
+        const comment = { ...currComment }
         comment.created_at = formatDate(comment.created_at)
         return comment
       })
@@ -42,35 +42,37 @@ export function SingleReview() {
   }
 
   return (
-    <main>
-      <img src={review.review_img_url} alt={review.title} />
-      <h2>{review.title}</h2>
-      <b>{review.category}</b>
-      <p>Created by {review.designer}</p>
-      <h3>{review.owner}</h3>
-      <p>{review.created_at}</p>
-      <article>
-        <p>{review.review_body}</p>
-      </article>
-      <p>Votes: {review.votes}</p>
-      <VoteButton reviewID={review.review_id} setReview={setReview} setDisplayAlert={setDisplayAlert} />
-      {displayAlert && <Alert crud='Vote' setDisplayAlert={setDisplayAlert} />}
-      <p>Comments: {review.comment_count}</p>
-      <>
-        {commentsIsLoading ? (
-          <p>'Loading...'</p>
-        ) : (
-          <ul>
-            {comments.map((comment) => {
-              return (
-                <li key={comment.comment_id}>
-                  <CommentCard comment={comment} />
-                </li>
-              )
-            })}
-          </ul>
-        )}
-      </>
+    <main id='single-review-page'>
+      <img id='single-review-img' src={review.review_img_url} alt={review.title} />
+      <div id='single-review-wrapper'>
+        <h2>{review.title}</h2>
+        <b>{review.category}</b>
+        <p>Created by {review.designer}</p>
+        <h3>{review.owner}</h3>
+        <p>{review.created_at}</p>
+        <article>
+          <p>{review.review_body}</p>
+        </article>
+        <p>Votes: {review.votes}</p>
+        <VoteButton reviewID={review.review_id} setReview={setReview} setDisplayAlert={setDisplayAlert} />
+        {displayAlert && <Alert crud='Vote' setDisplayAlert={setDisplayAlert} />}
+        <p>Comments: {review.comment_count}</p>
+        <>
+          {commentsIsLoading ? (
+            <p>'Loading...'</p>
+          ) : (
+            <ul>
+              {comments.map((comment) => {
+                return (
+                  <li key={comment.comment_id}>
+                    <CommentCard comment={comment} />
+                  </li>
+                )
+              })}
+            </ul>
+          )}
+        </>
+      </div>
     </main>
   )
 }
