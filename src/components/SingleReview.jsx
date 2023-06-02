@@ -95,7 +95,7 @@ export function SingleReview() {
           <ul>
             {comments.map((comment) => {
               return (
-                <li key={comment.comment_id}>
+                <li key={comment.comment_id} className='comment-card'>
                   <CommentCard comment={comment} />
                 </li>
               )

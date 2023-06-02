@@ -8,6 +8,11 @@ main {
   margin: 1em;
 }
 
+.comment-card {
+  border: 2px dotted black;
+  margin: 1em;
+}
+
 img {
   display: block;
   width: 100%;
