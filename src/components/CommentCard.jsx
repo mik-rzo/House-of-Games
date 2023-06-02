@@ -14,7 +14,7 @@ export function CommentCard({ comment }) {
       <Avatar avatarUrl={comment.avatar_url} />
       <p>Votes: {commentVoteCount}</p>
       <VoteButton id={comment.review_id} type='comment' setVoteCount={setCommentVoteCount} setDisplayAlert={setDisplayAlert} />
-      {displayAlert && <Alert crud='Vote' setDisplayAlert={setDisplayAlert} />}
+      {displayAlert && <Alert severity='error' crud='Vote' setDisplayAlert={setDisplayAlert} />}
     </article>
   )
 }
