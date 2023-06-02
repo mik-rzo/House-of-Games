@@ -96,6 +96,11 @@ li {
   list-style-type: none;
 }
 
+button#sort-by-reviews {
+  border: 1px black dotted;
+  background-color: transparent;
+}
+
 li.review-card {
   display: flex;
 }

@@ -4,10 +4,14 @@ const api = axios.create({
     baseURL: 'https://house-of-games-7nlp.onrender.com/api'
 })
 
-export function getReviews(categoryQuery) {
+export function getReviews(categoryQuery, sortByQuery, orderQuery) {
     let endpoint = '/reviews'
-    if (categoryQuery) {
+    if (categoryQuery && sortByQuery) {
+        endpoint += `?category=${categoryQuery}&sort_by=${sortByQuery}&order=${orderQuery}`
+    } else if (categoryQuery) {
         endpoint += `?category=${categoryQuery}`
+    } else if (!categoryQuery && (sortByQuery)) {
+        endpoint += `?sort_by=${sortByQuery}&order=${orderQuery}`
     }
     return api
         .get(endpoint)
