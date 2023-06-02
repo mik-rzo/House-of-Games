@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { getReviews } from '../api.js'
+import { getReviews, getUserByUsername } from '../api.js'
 import { ReviewCard } from './ReviewCard.jsx'
 import { formatDate } from '../utils/formatDate.js'
 import { useSearchParams } from 'react-router-dom'
@@ -13,15 +13,22 @@ export function Home() {
 
   useEffect(() => {
     setIsLoading(true)
-    getReviews([categoryQuery]).then((data) => {
-      data.reviews = data.reviews.map((currReview) => {
-        const review = { ...currReview }
-        review.created_at = formatDate(review.created_at)
-        return review
+    getReviews(categoryQuery)
+      .then((data) => {
+        data.reviews = data.reviews.map(async (currReview) => {
+          const review = { ...currReview }
+          review.created_at = formatDate(review.created_at)
+          review.avatar_url = await getUserByUsername(review.owner).then((data) => {
+            return data.user.avatar_url
+          })
+          return review
+        })
+        return Promise.all(data.reviews)
       })
-      setReviews(data.reviews)
-      setIsLoading(false)
-    })
+      .then((reviews) => {
+        setReviews(reviews)
+        setIsLoading(false)
+      })
   }, [searchParams])
 
   if (isLoading) {
@@ -34,8 +41,7 @@ export function Home() {
 
   return (
     <main>
-      <h2>Home page</h2>
-      <ul>
+      <ul id='home-page'>
         {reviews.map((review) => {
           return (
             <li key={review.review_id} className='review-card'>
