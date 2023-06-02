@@ -1,23 +1,29 @@
-import { useState } from 'react'
-import { patchReviewVote } from '../api.js'
+import { patchReviewVote, patchCommentVote } from '../api.js'
 
-export function VoteButton({ reviewID, setReview, setDisplayAlert }) {
+export function VoteButton({ id, type, setVoteCount, setDisplayAlert }) {
   function changeVote(incVote) {
     const req = { inc_votes: incVote }
-    setReview((review) => {
-      const updatedReview = { ...review }
-      updatedReview.votes += incVote
-      return updatedReview
-    })
-    patchReviewVote(reviewID, req)
-      .catch(() => {
-        setReview((review) => {
-          const updatedReview = { ...review }
-          updatedReview.votes -= incVote
-          return updatedReview
+    if (type === 'review') {
+      setVoteCount((reviewVoteCount) => {
+        return reviewVoteCount + incVote
+      })
+      patchReviewVote(id, req).catch(() => {
+        setVoteCount((reviewVoteCount) => {
+          return reviewVoteCount - incVote
         })
         setDisplayAlert(true)
       })
+    } else if (type === 'comment') {
+      setVoteCount((commentVoteCount) => {
+        return commentVoteCount + incVote
+      })
+      patchCommentVote(id, req).catch(() => {
+        setVoteCount((commentVoteCount) => {
+          return commentVoteCount - incVote
+        })
+        setDisplayAlert(true)
+      })
+    }
   }
 
   return (

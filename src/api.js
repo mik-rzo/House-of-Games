@@ -43,3 +43,24 @@ export function getComments(reviewID) {
             return res.data
         })
 }
+
+export function getUsers() {
+    return api
+        .get('/users')
+        .then((res) => {
+            return res.data
+        })
+}
+
+export function postComment(reviewID, comment) {
+    return api
+        .post(`/reviews/${reviewID}/comments`, comment)
+}
+
+export function patchCommentVote(commentID, voteRequest) {
+    return api
+        .patch(`/comments/${commentID}`, voteRequest)
+        .then((res) => {
+            return res.data
+        })
+}
