@@ -2,11 +2,11 @@ import { useState, useEffect, useContext } from 'react'
 import { useParams } from 'react-router-dom'
 import { getReviewByID, getComments, getUserByUsername } from '../api.js'
 import { CommentForm } from './CommentForm.jsx'
+import { VoteButton } from './VoteButton.jsx'
 import { CommentCard } from './CommentCard.jsx'
 import { UserContext } from '../contexts/User.jsx'
 import { formatDate } from '../utils/formatDate.js'
 import { isLoggedOut } from '../utils/isLoggedOut.js'
-import { VoteButton } from './VoteButton.jsx'
 import { Alert } from './Alert.jsx'
 import { Avatar } from './Avatar.jsx'
 
@@ -63,7 +63,7 @@ export function SingleReview() {
   }
 
   return (
-    <main>
+    <main id='single-review-page'>
       <img src={review.review_img_url} alt={review.title} />
       <h2>{review.title}</h2>
       <b>{review.category}</b>

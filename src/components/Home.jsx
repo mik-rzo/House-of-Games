@@ -37,8 +37,7 @@ export function Home() {
 
   return (
     <main>
-      <h2>Home page</h2>
-      <ul>
+      <ul id='home-page'>
         {reviews.map((review) => {
           return (
             <li key={review.review_id} className='review-card'>

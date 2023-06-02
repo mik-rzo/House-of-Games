@@ -1,5 +1,4 @@
 export function Alert({ severity, crud, setDisplayAlert }) {
-  console.log(severity, crud)
   if (severity === 'error') {
     return (
       <span id='alert'>

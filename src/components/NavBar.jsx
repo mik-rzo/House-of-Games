@@ -7,24 +7,32 @@ import { Avatar } from './Avatar.jsx'
 export function NavBar() {
   const { userLogin, setUserLogin } = useContext(UserContext)
   return (
-    <ul>
-      <li>
-        <Link to='/'>Home</Link>
-      </li>
-      <li>
-        <Link to='/categories'>Categories</Link>
-      </li>
-      {isLoggedOut(userLogin) ? (
+    <nav>
+      <ul>
         <li>
-          <Link to='/login'>Login</Link>
+          <Link id='home' to='/'>
+            Home
+          </Link>
         </li>
-      ) : (
         <li>
-          <b>{userLogin.username}</b>
-          <Avatar avatarUrl={userLogin.avatar_url}/>
-          <button onClick={() => setUserLogin({})}>Logout</button>
+          <Link id='categories' to='/categories'>
+            Categories
+          </Link>
         </li>
-      )}
-    </ul>
+        {isLoggedOut(userLogin) ? (
+          <li>
+            <Link id='login' to='/login'>
+              Login
+            </Link>
+          </li>
+        ) : (
+          <li>
+            <b>{userLogin.username}</b>
+            <Avatar avatarUrl={userLogin.avatar_url} />
+            <button onClick={() => setUserLogin({})}>Logout</button>
+          </li>
+        )}
+      </ul>
+    </nav>
   )
 }
