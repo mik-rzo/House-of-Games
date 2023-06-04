@@ -414,7 +414,7 @@ main#single-review-page > .grid-vote {
 
 .vote {
   background-color: transparent;
-  border: 1px black dotted;
+  border: none;
   width: 30px;
   height: 30px;
   grid-area: vote;
