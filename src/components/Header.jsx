@@ -1,3 +1,3 @@
 export function Header() {
-  return <h1>House <small>of</small> Games</h1>
+  return <h1>HOUSE OF GAMES</h1>
 }
