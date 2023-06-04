@@ -284,16 +284,10 @@ main#single-review-page > h2 {
     align-items: center;
     flex-basis: 48%;
   }
-  article.review-card {
-    box-shadow: -10px 10px #b01355;
-  }
-  article.review-card:hover,
-  article.review-card:active {
-    box-shadow: -5px 5px #b01355;
-  }
   main#single-review-page,
+  main#categories-page,
   main#login-page {
-    width: min(90%, 45rem);
+    width: min(90%, 700px);
     display: flex;
     flex-direction: column;
   }
@@ -334,6 +328,7 @@ main#single-review-page > h2 {
     align-items: center;
   }
   main#single-review-page,
+  main#categories-page,
   main#login-page {
     width: min(75%, 700px);
   }
@@ -543,4 +538,29 @@ article.user-card > a {
   color: black;
   padding: 0.5rem 1.5rem;
   text-align: center;
+}
+
+ul#categories-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+li.category-card {
+  padding: 0.25rem 0.5rem 0.5rem;
+  border: 2px black solid;
+  border-radius: 20px;
+  box-shadow: -10px 10px #23395d;
+}
+
+li.category-card:hover,
+li.category-card:active {
+  box-shadow: -5px 5px #23395d;
+}
+
+li.category-card,
+li.category-card * {
+  color: #ffffcd;
+  background-color: #524581;
 }

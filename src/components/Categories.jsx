@@ -19,12 +19,11 @@ export function Categories() {
   }
 
   return (
-    <main>
-      <h2>Categories page</h2>
-      <ul>
+    <main id='categories-page'>
+      <ul id='categories-page'>
         {categories.map((category) => {
           return (
-            <li key={category.slug}>
+            <li className='category-card' key={category.slug}>
               <CategoryCard category={category} />
             </li>
           )
