@@ -6,6 +6,11 @@ import { Avatar } from './Avatar.jsx'
 
 export function NavBar() {
   const { userLogin, setUserLogin } = useContext(UserContext)
+
+  function logout() {
+    setUserLogin({})
+  }
+
   return (
     <nav>
       <ul>
@@ -26,10 +31,10 @@ export function NavBar() {
             </Link>
           </li>
         ) : (
-          <li>
+          <li id='nav-profile'>
             <b>{userLogin.username}</b>
             <Avatar avatarUrl={userLogin.avatar_url} />
-            <button onClick={() => setUserLogin({})}>Logout</button>
+            <Link to='/' onClick={logout}>Logout</Link>
           </li>
         )}
       </ul>

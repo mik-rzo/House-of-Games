@@ -1,6 +1,6 @@
 @font-face {
   font-family: Kabel-Bold;
-  src: url('./fonts/KabelBdNormal.ttf');
+  src: url('./fonts/ITCKabelStdBold.TTF');
 }
 
 @font-face {
@@ -23,7 +23,7 @@ a {
 
 h1 {
   font-family: Kabel-Bold;
-  font-size: 2rem;
+  font-size: 2.5rem;
   margin-top: 2rem;
   text-align: center;
 }
@@ -40,8 +40,8 @@ h3 {
 
 nav {
   width: 99%;
-  margin: 0 auto;
-  padding: 1rem 0;
+  margin: 0 auto 1rem;
+  padding: 1rem 0 0;
 }
 
 nav > ul {
@@ -56,8 +56,8 @@ nav > ul {
 
 nav a {
   font-size: 1.25rem;
-  border-radius: 30px;
   font-weight: bold;
+  border-radius: 30px;
   padding: 0.75rem 1.5rem;
   border: solid black 2px;
   box-shadow: -10px 10px #fce205;
@@ -79,6 +79,77 @@ nav a#categories {
 
 nav a#login {
   background-color: #f5f06b;
+}
+
+nav #nav-profile {
+  display: grid;
+  grid-template-columns: 1fr 50px 120px;
+  column-gap: 1em;
+}
+
+nav #nav-profile > b {
+  align-self: center;
+  font-size: 1.25rem;
+}
+
+nav #nav-profile > a {
+  font-size: 1.25rem;
+  background-color: #f5f06b;
+  border-radius: 30px;
+  padding: 0.75rem 1.5rem;
+  border: solid black 2px;
+  box-shadow: -10px 10px #fce205;
+}
+
+nav #nav-profile > a:hover,
+nav #nav-profile > a:active {
+  box-shadow: -5px 5px #fce205;
+}
+
+#sort-menu {
+  width: 80%;
+  margin: 0 auto 1rem;
+}
+
+svg.sort-menu-active {
+  transform: rotate(-90deg);
+  transition: transform 0.25s;
+}
+
+svg.sort-menu-inactive {
+  transform: rotate(0deg);
+  transition: transform 0.25s;
+}
+
+#sort-options {
+  width: fit-content;
+  margin: 0 auto;
+}
+
+#sort-options select {
+  padding: 0.5em 0.25em;
+  border: solid black 1px;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+label#descending {
+  font-size: 1rem;
+  margin-right: 0.5rem;
+}
+
+label#ascending {
+  font-size: 1rem;
+  margin-right: 0.5rem;
+}
+
+#sort-options > button {
+  font-size: 1.2rem;
+  border-radius: 10px;
+  padding: 0.25rem 0.5rem;
+  border: solid black 2px;
+  background-color: #8e1a10;
+  color: #ffffcd;
 }
 
 main {
@@ -227,7 +298,7 @@ main#single-review-page > h2 {
 @media screen and (min-width: 1200px) {
   h1 {
     font-family: Kabel-Bold;
-    font-size: 4rem;
+    font-size: 4.75rem;
     margin-top: 3rem;
     text-align: center;
   }
@@ -236,7 +307,7 @@ main#single-review-page > h2 {
     height: 5rem;
     display: flex;
     flex-direction: row;
-    gap: 10rem;
+    gap: 6.5rem;
     justify-content: center;
   }
   nav a {
@@ -249,8 +320,8 @@ main#single-review-page > h2 {
     flex-wrap: wrap;
     justify-content: center;
   }
-  li.review-card {   
-    flex-basis: 25%;    
+  li.review-card {
+    flex-basis: 25%;
     display: flex;
     align-items: center;
   }
@@ -330,6 +401,8 @@ main#single-review-page > .grid-vote {
 }
 
 #vote-count {
+  width: fit-content;
+  white-space: nowrap;
   padding: 0.3em;
   grid-area: count;
   justify-self: right;
@@ -400,4 +473,30 @@ main#single-review-page > .grid-vote {
 
 #alert {
   border: dashed crimson 2px;
+}
+
+.comment-form {
+  width: min(100%, 35rem);
+  margin: 1rem auto 1rem;
+}
+
+.comment-form > textarea {
+  padding: 0.25em;
+  outline: none;
+  resize: none;
+  width: inherit;
+  height: 5rem;
+  font-size: 1rem;
+  background-color: #4ce889;
+  border: solid black 2px;
+  border-radius: 10px;
+}
+
+.comment-form > button {
+  font-size: 1.25rem;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  border: solid black 2px;
+  background-color: #0d642f;
+  color: #ffffcd;
 }

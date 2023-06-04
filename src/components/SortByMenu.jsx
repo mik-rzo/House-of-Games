@@ -17,13 +17,13 @@ export function SortByMenu({ categoryQuery }) {
     }
   }
   return (
-    <aside>
+    <aside id='sort-menu'>
       <button onClick={() => setDisplayMenu(!displayMenu)} id='sort-by-reviews'>
         <svg
-          className={setDisplayMenu ? 'sort-menu-active' : 'sort-menu-inactive'}
+          className={displayMenu ? 'sort-menu-active' : 'sort-menu-inactive'}
           fill='#000000'
-          width='40px'
-          height='40px'
+          width='25px'
+          height='25px'
           viewBox='-6.5 0 32 32'
           version='1.1'
           xmlns='http://www.w3.org/2000/svg'>
@@ -32,14 +32,15 @@ export function SortByMenu({ categoryQuery }) {
         </svg>
       </button>
       {displayMenu && (
-        <form onSubmit={handleSubmit}>
+        <form id='sort-options' onSubmit={handleSubmit}>
           <label htmlFor='sort-by'></label>
           <select value={sortByQuery} onChange={(e) => setSortByQuery(e.target.value)} name='sort-by' id='sort-by'>
             <option value='created_at'>Date</option>
             <option value='comment_count'>Comment count</option>
             <option value='votes'>Votes</option>
           </select>
-          <label htmlFor='descending'>Descending</label>
+          <br></br>
+          <label htmlFor='descending' id='descending'>Descending</label>
           <input
             checked={orderQuery === 'desc'}
             onChange={(e) => setOrder(e.target.value)}
@@ -47,7 +48,8 @@ export function SortByMenu({ categoryQuery }) {
             name='order'
             value='desc'
             id='descending'></input>
-          <label htmlFor='ascending'>Ascending</label>
+          <br></br>
+          <label htmlFor='ascending' id='ascending'>Ascending</label>
           <input
             checked={orderQuery === 'asc'}
             onChange={(e) => setOrder(e.target.value)}
@@ -55,7 +57,8 @@ export function SortByMenu({ categoryQuery }) {
             name='order'
             value='asc'
             id='ascending'></input>
-          <button type='submit'>Submit</button>
+          <br></br>
+          <button type='submit'>Sort reviews</button>
         </form>
       )}
     </aside>

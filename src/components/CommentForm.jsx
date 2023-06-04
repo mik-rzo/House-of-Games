@@ -34,9 +34,10 @@ export function CommentForm({ setComments, reviewID, setReview }) {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
+      <form className='comment-form' onSubmit={handleSubmit}>
         <label htmlFor='comment-form'></label>
-        <input value={newComment} onChange={(event) => setNewComment(event.target.value)} id='comment-form'></input>
+        <textarea value={newComment} onChange={(event) => setNewComment(event.target.value)} id='comment-form'></textarea>
+        <br></br>
         <button type='submit'>Post comment</button>
       </form>
       <span>{displayAlert && <Alert severity='success' crud='Post' setDisplayAlert={setDisplayAlert} />}</span>
