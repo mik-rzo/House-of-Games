@@ -164,6 +164,7 @@ main {
   margin: 0 auto;
   width: min(90%);
   line-height: 1.8;
+  margin-bottom: 2rem;
 }
 
 li {
@@ -570,7 +571,6 @@ ul#categories-page {
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
-  margin-bottom: 2rem;
 }
 
 li.category-card {
