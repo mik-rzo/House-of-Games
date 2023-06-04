@@ -22,8 +22,8 @@ export function CommentCard({ comment }) {
           setVoteCount={setCommentVoteCount}
           setDisplayAlert={setDisplayAlert}
         />
-        {displayAlert && <Alert severity='error' crud='Vote' setDisplayAlert={setDisplayAlert} />}
       </div>
+      {displayAlert && <Alert severity='error' crud='Vote' setDisplayAlert={setDisplayAlert} />}
     </article>
   )
 }

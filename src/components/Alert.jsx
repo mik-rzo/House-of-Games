@@ -3,6 +3,7 @@ export function Alert({ severity, crud, setDisplayAlert }) {
     return (
       <span id='alert'>
         <svg
+          className='alert-symbol'
           fill='#000000'
           version='1.1'
           id='Layer_1'
@@ -27,8 +28,10 @@ export function Alert({ severity, crud, setDisplayAlert }) {
             />
           </g>
         </svg>
-        <b>{crud} request failed.</b> {crud === 'Vote' && 'Vote count has been reset.'}
-        <button onClick={() => setDisplayAlert(false)}>
+        <p>
+          <b>{crud} request failed.</b> {crud === 'Vote' && 'Vote count has been reset.'}
+        </p>
+        <button className='alert-close' onClick={() => setDisplayAlert(false)}>
           <svg
             fill='#000000'
             version='1.1'
@@ -56,6 +59,7 @@ export function Alert({ severity, crud, setDisplayAlert }) {
     return (
       <span id='alert'>
         <svg
+          className='alert-symbol'
           width='40px'
           height='40px'
           viewBox='0 0 512 512'
@@ -71,8 +75,8 @@ export function Alert({ severity, crud, setDisplayAlert }) {
             </g>
           </g>
         </svg>
-        <b>{crud} request succeeded.</b>
-        <button onClick={() => setDisplayAlert(false)}>
+        <p><b>{crud} request succeeded.</b></p>
+        <button className='alert-close' onClick={() => setDisplayAlert(false)}>
           <svg
             fill='#000000'
             version='1.1'

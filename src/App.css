@@ -344,7 +344,6 @@ article.comment-card {
 }
 
 article.comment-card > * {
-  border-radius: 20px;
   color: #ffffcd;
   background-color: #0d642f;
 }
@@ -476,7 +475,34 @@ main#single-review-page > .grid-vote {
 }
 
 #alert {
-  border: dashed crimson 2px;
+  border: dashed black 2px;
+  background-color: #ffffcd;
+  display: grid;
+  grid-template-areas: 
+  'alert-symbol message close';
+  grid-template-columns: 40px 1fr 30px;
+  grid-row: 1;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+#alert svg {
+  grid-area: alert-symbol;
+  fill: black;
+  background-color: #ffffcd;
+}
+
+#alert p {
+  align-self: center;
+  grid-area: message;
+  background-color: #ffffcd;
+  color: black;
+}
+
+#alert button.alert-close {
+  border: none;
+  grid-area: close;
+  align-self: center;
 }
 
 .comment-form {
