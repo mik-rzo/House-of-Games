@@ -67,23 +67,30 @@ export function SingleReview() {
       <img src={review.review_img_url} alt={review.title} />
       <h2>{review.title}</h2>
       <b>{review.category}</b>
-      <p>Created by {review.designer}</p>
-      <h3>{review.owner}</h3>
-      <Avatar avatarUrl={avatarUrl} />
-      <p>{review.created_at}</p>
+      <p>Game created by {review.designer}</p>
+      <div className='grid-user'>
+        <h3 className='flex-center username'>{review.owner}</h3>
+        <Avatar avatarUrl={avatarUrl} />
+      </div>
+      <i className='flex-center'>Posted on {review.created_at}</i>
       <article>
         <p>{review.review_body}</p>
       </article>
-      <p>Votes: {reviewVoteCount}</p>
-      <VoteButton
-        id={review.review_id}
-        type='review'
-        setVoteCount={setReviewVoteCount}
-        setDisplayAlert={setDisplayAlert}
-      />
+      <div className='grid-vote flex-right'>
+        <p id='vote-count'>Votes: {reviewVoteCount}</p>
+        <VoteButton
+          id={review.review_id}
+          type='review'
+          setVoteCount={setReviewVoteCount}
+          setDisplayAlert={setDisplayAlert}
+        />
+      </div>
       {displayAlert && <Alert severity='error' crud='Vote' setDisplayAlert={setDisplayAlert} />}
       {isLoggedOut(userLogin) ? (
-        <p><b>Login to post a comment</b></p>
+        <p>
+          <br></br>
+          <b>Login to post a comment</b>
+        </p>
       ) : (
         <CommentForm setComments={setComments} reviewID={review.review_id} setReview={setReview} />
       )}
@@ -92,7 +99,7 @@ export function SingleReview() {
         {commentsIsLoading ? (
           <p>'Loading...'</p>
         ) : (
-          <ul>
+          <ul id='single-review-page'>
             {comments.map((comment) => {
               return (
                 <li key={comment.comment_id} className='comment-card'>

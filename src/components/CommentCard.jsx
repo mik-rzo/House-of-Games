@@ -5,16 +5,25 @@ import { Avatar } from './Avatar.jsx'
 
 export function CommentCard({ comment }) {
   const [commentVoteCount, setCommentVoteCount] = useState(comment.votes)
-  const [displayAlert, setDisplayAlert] = useState(false) 
+  const [displayAlert, setDisplayAlert] = useState(false)
   return (
-    <article>
-      <h4>{comment.author}</h4>
+    <article className='comment-card'>
+      <div className='grid-user'>
+        <h4 className='username'>{comment.author}</h4>
+        <Avatar avatarUrl={comment.avatar_url} />
+      </div>
       <p>{comment.created_at}</p>
       <p>{comment.body}</p>
-      <Avatar avatarUrl={comment.avatar_url} />
-      <p>Votes: {commentVoteCount}</p>
-      <VoteButton id={comment.review_id} type='comment' setVoteCount={setCommentVoteCount} setDisplayAlert={setDisplayAlert} />
-      {displayAlert && <Alert severity='error' crud='Vote' setDisplayAlert={setDisplayAlert} />}
+      <div className='grid-vote'>
+        <p id='vote-count'>Votes: {commentVoteCount}</p>
+        <VoteButton
+          id={comment.review_id}
+          type='comment'
+          setVoteCount={setCommentVoteCount}
+          setDisplayAlert={setDisplayAlert}
+        />
+        {displayAlert && <Alert severity='error' crud='Vote' setDisplayAlert={setDisplayAlert} />}
+      </div>
     </article>
   )
 }
