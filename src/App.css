@@ -479,8 +479,7 @@ main#single-review-page > .grid-vote {
   border: dashed black 2px;
   background-color: #ffffcd;
   display: grid;
-  grid-template-areas: 
-  'alert-symbol message close';
+  grid-template-areas: 'alert-symbol message close';
   grid-template-columns: 40px 1fr 30px;
   grid-row: 1;
   width: fit-content;
@@ -542,11 +541,11 @@ ul#login-page {
 
 article.user-card {
   border-radius: 20px;
-  border: solid #ffffcd 2px;
   background-color: black;
   color: #cba324;
-  border: solid #cba324 2px;
+  border: solid black 2px;
   padding: 1rem;
+  box-shadow: -10px 10px #d1b000;
 }
 
 article.user-card > h3 {
