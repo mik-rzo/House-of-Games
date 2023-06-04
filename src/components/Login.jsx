@@ -13,9 +13,8 @@ export function Login() {
   }, [])
 
   return (
-    <main>
-      <h2>Login page</h2>
-      <ul>
+    <main id='login-page'>
+      <ul id='login-page'>
         {users.map((user) => {
           return (
             <li key={user.username}>

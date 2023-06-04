@@ -106,9 +106,17 @@ nav #nav-profile > a:active {
   box-shadow: -5px 5px #fce205;
 }
 
+button#sort-by-reviews {
+  border: none;
+  background-color: transparent;
+}
+
 #sort-menu {
-  width: 80%;
-  margin: 0 auto 1rem;
+  margin-bottom: 1rem;
+}
+
+#sort-menu svg {
+  fill: #ffffcd background-col;
 }
 
 svg.sort-menu-active {
@@ -160,11 +168,6 @@ main {
 
 li {
   list-style-type: none;
-}
-
-button#sort-by-reviews {
-  border: 1px black dotted;
-  background-color: transparent;
 }
 
 li.review-card {
@@ -288,7 +291,8 @@ main#single-review-page > h2 {
   article.review-card:active {
     box-shadow: -5px 5px #b01355;
   }
-  main#single-review-page {
+  main#single-review-page,
+  main#login-page {
     width: min(90%, 45rem);
     display: flex;
     flex-direction: column;
@@ -314,6 +318,10 @@ main#single-review-page > h2 {
     font-size: 1.5rem;
     padding: 1rem 2rem;
   }
+  #sort-menu {
+    width: 82%;
+    margin: 0 auto 1rem;
+  }
   ul#home-page {
     display: flex;
     gap: 2.5rem;
@@ -325,7 +333,8 @@ main#single-review-page > h2 {
     display: flex;
     align-items: center;
   }
-  main#single-review-page {
+  main#single-review-page,
+  main#login-page {
     width: min(75%, 700px);
   }
 }
@@ -499,4 +508,39 @@ main#single-review-page > .grid-vote {
   border: solid black 2px;
   background-color: #0d642f;
   color: #ffffcd;
+}
+
+ul#login-page {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 2rem;
+}
+
+article.user-card {
+  border-radius: 20px;
+  border: solid #ffffcd 2px;
+  background-color: black;
+  color: #cba324;
+  border: solid #cba324 2px;
+  padding: 1rem;
+}
+
+article.user-card > h3 {
+  color: #cba324;
+  background-color: black;
+}
+
+article.user-card > a {
+  font-size: 1.25rem;
+  width: 6.5rem;
+  margin: 1rem auto 0;
+  display: block;
+  border-radius: 20px;
+  border: solid #ffffcd 2px;
+  background-color: #cba324;
+  color: black;
+  padding: 0.5rem 1.5rem;
+  text-align: center;
 }
