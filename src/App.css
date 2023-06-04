@@ -559,10 +559,10 @@ article.user-card > a {
   margin: 1rem auto 0;
   display: block;
   border-radius: 20px;
-  border: solid #ffffcd 2px;
+  border: solid black 2px;
   background-color: #cba324;
   color: black;
-  padding: 0.5rem 1.5rem;
+  padding: 0.25rem 1.25rem;
   text-align: center;
 }
 
@@ -589,4 +589,10 @@ li.category-card,
 li.category-card * {
   color: #ffffcd;
   background-color: #524581;
+}
+
+.loading {
+  display: block;
+  width: 75px;
+  margin: 2rem auto;
 }

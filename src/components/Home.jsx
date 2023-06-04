@@ -4,6 +4,7 @@ import { ReviewCard } from './ReviewCard.jsx'
 import { formatDate } from '../utils/formatDate.js'
 import { useSearchParams } from 'react-router-dom'
 import { SortByMenu } from './SortByMenu.jsx'
+import { ThreeDots } from 'react-loading-icons'
 
 export function Home() {
   const [reviews, setReviews] = useState([])
@@ -37,7 +38,8 @@ export function Home() {
   if (isLoading) {
     return (
       <>
-        <p>Loading...</p>
+        <br></br>
+        <ThreeDots className='loading' fill='#b01355' width='50' />
       </>
     )
   }

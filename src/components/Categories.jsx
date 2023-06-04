@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { getCategories } from '../api.js'
 import { CategoryCard } from './CategoryCard.jsx'
+import { ThreeDots } from 'react-loading-icons'
 
 export function Categories() {
   const [categories, setCategories] = useState([])
@@ -15,7 +16,12 @@ export function Categories() {
   }, [])
 
   if (isLoading) {
-    return <p>Loading</p>
+    return (
+      <>
+        <br></br>
+        <ThreeDots className='loading' fill='#23395d' width='50' />
+      </>
+    )
   }
 
   return (

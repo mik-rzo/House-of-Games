@@ -9,24 +9,24 @@ import { formatDate } from '../utils/formatDate.js'
 import { isLoggedOut } from '../utils/isLoggedOut.js'
 import { Alert } from './Alert.jsx'
 import { Avatar } from './Avatar.jsx'
+import { ThreeDots } from 'react-loading-icons'
 
 export function SingleReview() {
   const { userLogin } = useContext(UserContext)
 
+  const [isLoading, setIsLoading] = useState(false)
+
   const [review, setReview] = useState({})
   const [reviewVoteCount, setReviewVoteCount] = useState(0)
-  const [reviewIsLoading, setReviewIsLoading] = useState(false)
   const [avatarUrl, setAvatarUrl] = useState('')
   const [comments, setComments] = useState([])
-  const [commentsIsLoading, setCommentsIsLoading] = useState(false)
 
   const [displayAlert, setDisplayAlert] = useState(false)
 
   const { review_id } = useParams()
 
   useEffect(() => {
-    setReviewIsLoading(true)
-    setCommentsIsLoading(true)
+    setIsLoading(true)
 
     getReviewByID(review_id)
       .then((data) => {
@@ -37,10 +37,8 @@ export function SingleReview() {
         setReview(review)
         setReviewVoteCount(review.votes)
         setAvatarUrl(response.user.avatar_url)
-        setReviewIsLoading(false)
+        return getComments(review_id)
       })
-
-    getComments(review_id)
       .then((data) => {
         data.comments = data.comments.map(async (currComment) => {
           const comment = { ...currComment }
@@ -54,12 +52,17 @@ export function SingleReview() {
       })
       .then((comments) => {
         setComments(comments)
-        setCommentsIsLoading(false)
+        setIsLoading(false)
       })
   }, [])
 
-  if (reviewIsLoading) {
-    return <p>Loading...</p>
+  if (isLoading) {
+    return (
+      <>
+        <br></br>
+        <ThreeDots className='loading' fill='#8e1a10' width='50' />
+      </>
+    )
   }
 
   return (
@@ -95,21 +98,15 @@ export function SingleReview() {
         <CommentForm setComments={setComments} reviewID={review.review_id} setReview={setReview} />
       )}
       <p>Comments: {review.comment_count}</p>
-      <>
-        {commentsIsLoading ? (
-          <p>'Loading...'</p>
-        ) : (
-          <ul id='single-review-page'>
-            {comments.map((comment) => {
-              return (
-                <li key={comment.comment_id} className='comment-card'>
-                  <CommentCard comment={comment} />
-                </li>
-              )
-            })}
-          </ul>
-        )}
-      </>
+      <ul id='single-review-page'>
+        {comments.map((comment) => {
+          return (
+            <li key={comment.comment_id} className='comment-card'>
+              <CommentCard comment={comment} />
+            </li>
+          )
+        })}
+      </ul>
     </main>
   )
 }
