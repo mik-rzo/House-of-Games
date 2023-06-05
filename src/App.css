@@ -246,6 +246,18 @@ main#single-review-page > h2 {
   padding-top: 0.5em;
 }
 
+ul#login-page {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+}
+
+ul#login-page > li {
+  width: 80%;
+}
+
 .flex-center {
   align-self: center;
 }
@@ -293,6 +305,17 @@ main#single-review-page > h2 {
     display: flex;
     flex-direction: column;
   }
+  ul#login-page {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-evenly;
+  }
+  ul#login-page > li {
+    flex-basis: 20%;
+  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -333,6 +356,17 @@ main#single-review-page > h2 {
   main#categories-page,
   main#login-page {
     width: min(75%, 700px);
+  }
+  ul#login-page {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: space-evenly;
+  }
+  ul#login-page > li {
+    flex-basis: 20%;
   }
 }
 
@@ -530,14 +564,6 @@ main#single-review-page > .grid-vote {
   border: solid black 2px;
   background-color: #0d642f;
   color: #ffffdb;
-}
-
-ul#login-page {
-  margin-top: 2rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  gap: 2rem;
 }
 
 article.user-card {
