@@ -12,7 +12,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  background-color: #ffffcd;
+  background-color: #ffffdb;
   font-family: Just-Sans;
   color: black;
 }
@@ -117,7 +117,7 @@ button#sort-by-reviews {
 }
 
 #sort-menu svg {
-  fill: #ffffcd background-col;
+  fill: #ffffdb background-col;
 }
 
 svg.sort-menu-active {
@@ -158,7 +158,7 @@ label#ascending {
   padding: 0.25rem 0.5rem;
   border: solid black 2px;
   background-color: #8e1a10;
-  color: #ffffcd;
+  color: #ffffdb;
 }
 
 main {
@@ -189,7 +189,7 @@ article.review-card:active {
 }
 
 article.review-card > p {
-  color: #ffffcd;
+  color: #ffffdb;
   background-color: #8e1a10;
 }
 
@@ -346,15 +346,15 @@ article.comment-card {
 }
 
 article.comment-card > * {
-  color: #ffffcd;
+  color: #ffffdb;
   background-color: #0d642f;
 }
 
 article.comment-card h4,
 article.comment-card p,
 article.comment-card svg {
-  fill: #ffffcd;
-  color: #ffffcd;
+  fill: #ffffdb;
+  color: #ffffdb;
   background-color: #0d642f;
 }
 
@@ -478,7 +478,7 @@ main#single-review-page > .grid-vote {
 
 #alert {
   border: dashed black 2px;
-  background-color: #ffffcd;
+  background-color: #ffffdb;
   display: grid;
   grid-template-areas: 'alert-symbol message close';
   grid-template-columns: 40px 1fr 30px;
@@ -490,13 +490,13 @@ main#single-review-page > .grid-vote {
 #alert svg {
   grid-area: alert-symbol;
   fill: black;
-  background-color: #ffffcd;
+  background-color: #ffffdb;
 }
 
 #alert p {
   align-self: center;
   grid-area: message;
-  background-color: #ffffcd;
+  background-color: #ffffdb;
   color: black;
 }
 
@@ -529,7 +529,7 @@ main#single-review-page > .grid-vote {
   padding: 0.5rem 1rem;
   border: solid black 2px;
   background-color: #0d642f;
-  color: #ffffcd;
+  color: #ffffdb;
 }
 
 ul#login-page {
@@ -587,7 +587,7 @@ li.category-card:active {
 
 li.category-card,
 li.category-card * {
-  color: #ffffcd;
+  color: #ffffdb;
   background-color: #524581;
 }
 
