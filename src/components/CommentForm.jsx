@@ -7,7 +7,8 @@ import { formatDate } from '../utils/formatDate.js'
 export function CommentForm({ setComments, reviewID, setReview }) {
   const { userLogin } = useContext(UserContext)
   const [newComment, setNewComment] = useState('')
-  const [displayAlert, setDisplayAlert] = useState(false)
+  const [displaySuccessAlert, setDisplaySuccessAlert] = useState(false)
+  const [displayFailureAlert, setDisplayFailureAlert] = useState(false)
 
   function handleSubmit(event) {
     event.preventDefault()
@@ -15,6 +16,7 @@ export function CommentForm({ setComments, reviewID, setReview }) {
       username: userLogin.username,
       body: newComment
     }
+    setNewComment('')
     postComment(reviewID, comment)
       .then((apiResponse) => {
         return Promise.all([getUserByUsername(userLogin.username), apiResponse.data.comment])
@@ -28,7 +30,10 @@ export function CommentForm({ setComments, reviewID, setReview }) {
           review.comment_count += 1
           return review
         })
-        setDisplayAlert(true)
+        setDisplaySuccessAlert(true)
+      })
+      .catch(() => {
+        setDisplayFailureAlert(true)
       })
   }
 
@@ -36,11 +41,22 @@ export function CommentForm({ setComments, reviewID, setReview }) {
     <>
       <form className='comment-form' onSubmit={handleSubmit}>
         <label htmlFor='comment-form'></label>
-        <textarea value={newComment} onChange={(event) => setNewComment(event.target.value)} id='comment-form'></textarea>
+        <textarea
+          value={newComment}
+          onChange={(event) => setNewComment(event.target.value)}
+          id='comment-form'></textarea>
         <br></br>
         <button type='submit'>Post comment</button>
       </form>
-      <span>{displayAlert && <Alert severity='success' crud='Post' setDisplayAlert={setDisplayAlert} />}</span>
+      <span>
+        {displaySuccessAlert ? (
+          <Alert severity='success' crud='Post' setDisplayAlert={setDisplaySuccessAlert} />
+        ) : displayFailureAlert ? (
+          <Alert severity='error' crud='Post' setDisplayAlert={setDisplayFailureAlert} />
+        ) : (
+          <></>
+        )}
+      </span>
     </>
   )
 }
