@@ -1,4 +1,4 @@
-import { patchReviewVote, patchCommentVote } from '../api.js'
+import { patchReviewVote, patchCommentVote } from '../../api.js'
 
 export function VoteButton({ id, type, setVoteCount, setDisplayAlert }) {
   function changeVote(incVote) {

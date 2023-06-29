@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { useContext } from 'react'
 import { UserContext } from '../contexts/User.jsx'
 import { isLoggedOut } from '../utils/isLoggedOut.js'
-import { Avatar } from './Avatar.jsx'
+import { Avatar } from '../components/common/Avatar.jsx'
 
 export function NavBar() {
   const { userLogin, setUserLogin } = useContext(UserContext)

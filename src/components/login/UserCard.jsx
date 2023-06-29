@@ -1,7 +1,7 @@
 import { useContext } from 'react'
-import { UserContext } from '../contexts/User.jsx'
-import { Avatar } from './Avatar.jsx'
-import { isLoggedOut } from '../utils/isLoggedOut.js'
+import { UserContext } from '../../contexts/User.jsx'
+import { Avatar } from '../common/Avatar.jsx'
+import { isLoggedOut } from '../../utils/isLoggedOut.js'
 import { Link } from 'react-router-dom'
 
 export function UserCard({ user }) {

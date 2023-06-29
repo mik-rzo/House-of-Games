@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Avatar } from './Avatar.jsx'
+import { Avatar } from '../common/Avatar.jsx'
 
 export function ReviewCard({ review }) {
   return (

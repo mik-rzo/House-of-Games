@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { getCategories } from '../api.js'
-import { CategoryCard } from './CategoryCard.jsx'
+import { CategoryCard } from '../components/categories/CategoryCard.jsx'
 import { ThreeDots } from 'react-loading-icons'
 
 export function Categories() {

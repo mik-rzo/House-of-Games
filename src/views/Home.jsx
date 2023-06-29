@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react'
 import { getReviews, getUserByUsername } from '../api.js'
-import { ReviewCard } from './ReviewCard.jsx'
+import { ReviewCard } from '../components/home/ReviewCard.jsx'
 import { formatDate } from '../utils/formatDate.js'
 import { useSearchParams } from 'react-router-dom'
-import { SortByMenu } from './SortByMenu.jsx'
+import { SortByMenu } from '../components/home/SortByMenu.jsx'
 import { ThreeDots } from 'react-loading-icons'
 
 export function Home() {

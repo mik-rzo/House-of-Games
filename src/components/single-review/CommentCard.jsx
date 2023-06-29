@@ -1,7 +1,7 @@
 import { useState } from 'react'
-import { VoteButton } from './VoteButton.jsx'
-import { Alert } from './Alert.jsx'
-import { Avatar } from './Avatar.jsx'
+import { VoteButton } from '../common/VoteButton.jsx'
+import { Alert } from '../common/Alert.jsx'
+import { Avatar } from '../common/Avatar.jsx'
 
 export function CommentCard({ comment }) {
   const [commentVoteCount, setCommentVoteCount] = useState(comment.votes)

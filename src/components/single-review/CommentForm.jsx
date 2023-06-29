@@ -1,8 +1,8 @@
 import { useState, useContext } from 'react'
-import { UserContext } from '../contexts/User.jsx'
-import { Alert } from './Alert.jsx'
-import { getUserByUsername, postComment } from '../api.js'
-import { formatDate } from '../utils/formatDate.js'
+import { UserContext } from '../../contexts/User.jsx'
+import { Alert } from '../common/Alert.jsx'
+import { getUserByUsername, postComment } from '../../api.js'
+import { formatDate } from '../../utils/formatDate.js'
 
 export function CommentForm({ setComments, reviewID, setReview }) {
   const { userLogin } = useContext(UserContext)

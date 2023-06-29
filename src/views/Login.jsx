@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { getUsers } from '../api.js'
-import { UserCard } from './UserCard.jsx'
+import { UserCard } from '../components/login/UserCard.jsx'
 import { ThreeDots } from 'react-loading-icons'
 
 export function Login() {

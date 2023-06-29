@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
-import { Header, NavBar, Home, SingleReview, Categories, Login } from './components/index.js'
+import { Header, NavBar, Home, SingleReview, Categories, Login } from './views/index.js'
 import './App.css'
 
 function App() {
