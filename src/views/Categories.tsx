@@ -1,10 +1,15 @@
 import { useState, useEffect } from 'react'
-import { getCategories } from '../api.js'
-import { CategoryCard } from '../components/categories/CategoryCard.jsx'
+import { getCategories } from '../api.ts'
+import { CategoryCard } from '../components/categories/CategoryCard.tsx'
 import { ThreeDots } from 'react-loading-icons'
 
+export interface CategoryI {
+  slug?: string
+  description?: string
+}
+
 export function Categories() {
-  const [categories, setCategories] = useState([])
+  const [categories, setCategories] = useState<CategoryI[]>([])
   const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {

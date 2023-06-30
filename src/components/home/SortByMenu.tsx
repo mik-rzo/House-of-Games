@@ -1,14 +1,18 @@
-import { useState } from 'react'
+import { FormEvent, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-export function SortByMenu({ categoryQuery }) {
+interface SortByMenuProps {
+  categoryQuery: string | null
+}
+
+export function SortByMenu({ categoryQuery }: SortByMenuProps) {
   const navigate = useNavigate()
   const [displayMenu, setDisplayMenu] = useState(false)
 
   const [sortByQuery, setSortByQuery] = useState('created_at')
   const [orderQuery, setOrder] = useState('desc')
 
-  function handleSubmit(event) {
+  function handleSubmit(event: FormEvent) {
     event.preventDefault()
     if (!categoryQuery) {
       return navigate(`/?sort_by=${sortByQuery}&order=${orderQuery}`)

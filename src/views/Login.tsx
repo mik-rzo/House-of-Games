@@ -1,10 +1,16 @@
 import { useState, useEffect } from 'react'
 import { getUsers } from '../api.js'
-import { UserCard } from '../components/login/UserCard.jsx'
+import { UserCard } from '../components/login/UserCard.js'
 import { ThreeDots } from 'react-loading-icons'
 
+export interface UserI {
+  username: string
+  avatar_url: string
+  name: string
+}
+
 export function Login() {
-  const [users, setUsers] = useState([])
+  const [users, setUsers] = useState<UserI[]>([])
   const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {

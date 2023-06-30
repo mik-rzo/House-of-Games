@@ -1,13 +1,20 @@
-import { patchReviewVote, patchCommentVote } from '../../api.js'
+import { patchReviewVote, patchCommentVote } from '../../api.ts'
 
-export function VoteButton({ id, type, setVoteCount, setDisplayAlert }) {
-  function changeVote(incVote) {
+interface VoteButtonProps {
+  id: number
+  type: string
+  setVoteCount: React.Dispatch<React.SetStateAction<number>>
+  setDisplayAlert: React.Dispatch<React.SetStateAction<boolean>>
+}
+
+export function VoteButton({ id, type, setVoteCount, setDisplayAlert }: VoteButtonProps) {
+  function changeVote(incVote: number) {
     const req = { inc_votes: incVote }
     if (type === 'review') {
       setVoteCount((reviewVoteCount) => {
         return reviewVoteCount + incVote
       })
-      patchReviewVote(id, req).catch(() => {
+      patchReviewVote(id.toString(), req).catch(() => {
         setVoteCount((reviewVoteCount) => {
           return reviewVoteCount - incVote
         })
@@ -17,7 +24,7 @@ export function VoteButton({ id, type, setVoteCount, setDisplayAlert }) {
       setVoteCount((commentVoteCount) => {
         return commentVoteCount + incVote
       })
-      patchCommentVote(id, req).catch(() => {
+      patchCommentVote(id.toString(), req).catch(() => {
         setVoteCount((commentVoteCount) => {
           return commentVoteCount - incVote
         })
