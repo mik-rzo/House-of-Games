@@ -11,10 +11,9 @@ export interface UserI {
 
 export function Login() {
   const [users, setUsers] = useState<UserI[]>([])
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    setIsLoading(true)
     getUsers().then((data) => {
       setUsers(data.users)
       setIsLoading(false)
@@ -24,7 +23,6 @@ export function Login() {
   if (isLoading) {
     return (
       <>
-        <br></br>
         <ThreeDots className='loading' fill='#cba324' width='50' />
       </>
     )

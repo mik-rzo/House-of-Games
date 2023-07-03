@@ -10,10 +10,9 @@ export interface CategoryI {
 
 export function Categories() {
   const [categories, setCategories] = useState<CategoryI[]>([])
-  const [isLoading, setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    setIsLoading(true)
     getCategories().then((data) => {
       setCategories(data.categories)
       setIsLoading(false)
@@ -23,7 +22,6 @@ export function Categories() {
   if (isLoading) {
     return (
       <>
-        <br></br>
         <ThreeDots className='loading' fill='#23395d' width='50' />
       </>
     )

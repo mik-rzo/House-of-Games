@@ -38,7 +38,7 @@ export interface CommentI {
 export function SingleReview() {
 	const { userLogin } = useContext(UserContext)
 
-	const [isLoading, setIsLoading] = useState(false)
+	const [isLoading, setIsLoading] = useState(true)
 
 	const [review, setReview] = useState<SingleReviewI>({})
 	const [reviewVoteCount, setReviewVoteCount] = useState(0)
@@ -50,8 +50,6 @@ export function SingleReview() {
 	const { review_id } = useParams()
 
 	useEffect(() => {
-		setIsLoading(true)
-
 		getReviewByID(review_id as string)
 			.then((data) => {
 				data.review.created_at = formatDate(data.review.created_at)
@@ -83,7 +81,6 @@ export function SingleReview() {
 	if (isLoading) {
 		return (
 			<>
-				<br></br>
 				<ThreeDots className='loading' fill='#8e1a10' width='50' />
 			</>
 		)

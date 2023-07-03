@@ -16,12 +16,12 @@ interface ReviewI {
 	created_at?: string
 	votes?: number
 	comment_count?: number
-  avatar_url?: string
+	avatar_url?: string
 }
 
 export function Home() {
 	const [reviews, setReviews] = useState<object[]>([])
-	const [isLoading, setIsLoading] = useState(false)
+	const [isLoading, setIsLoading] = useState(true)
 
 	const [searchParams] = useSearchParams()
 	const categoryQuery = searchParams.get('category')
@@ -29,7 +29,6 @@ export function Home() {
 	const orderQuery = searchParams.get('order')
 
 	useEffect(() => {
-		setIsLoading(true)
 		getReviews(categoryQuery, sortByQuery, orderQuery)
 			.then((data) => {
 				data.reviews = data.reviews.map(async (currReview: object) => {
@@ -51,7 +50,6 @@ export function Home() {
 	if (isLoading) {
 		return (
 			<>
-				<br></br>
 				<ThreeDots className='loading' fill='#b01355' width='50' />
 			</>
 		)
