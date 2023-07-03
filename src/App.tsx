@@ -1,12 +1,11 @@
 import { Routes, Route } from 'react-router-dom'
-import { Header, NavBar, Home, SingleReview, Categories, Login } from './components/index.js'
+import { Header, Home, SingleReview, Categories, Login } from './views/index.ts'
 import './App.css'
 
 function App() {
   return (
     <>
       <Header />
-      <NavBar />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/reviews/:review_id' element={<SingleReview />} />

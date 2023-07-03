@@ -1,14 +1,18 @@
 import { useState, useEffect } from 'react'
-import { getCategories } from '../api.js'
-import { CategoryCard } from './CategoryCard.jsx'
+import { getCategories } from '../api.ts'
+import { CategoryCard } from '../components/categories/CategoryCard.tsx'
 import { ThreeDots } from 'react-loading-icons'
 
+export interface CategoryI {
+  slug?: string
+  description?: string
+}
+
 export function Categories() {
-  const [categories, setCategories] = useState([])
-  const [isLoading, setIsLoading] = useState(false)
+  const [categories, setCategories] = useState<CategoryI[]>([])
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
-    setIsLoading(true)
     getCategories().then((data) => {
       setCategories(data.categories)
       setIsLoading(false)
@@ -18,7 +22,6 @@ export function Categories() {
   if (isLoading) {
     return (
       <>
-        <br></br>
         <ThreeDots className='loading' fill='#23395d' width='50' />
       </>
     )
