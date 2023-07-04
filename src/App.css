@@ -1,11 +1,29 @@
 @font-face {
-  font-family: Neue-Kabel-Bold;
-  src: url('./fonts/NeueKabel-Bold.otf');
+  font-family: Oak-Sans;
+  src: url('./fonts/OakSans-Regular.ttf');
+  font-weight: 400;
+  font-style: normal;
 }
 
 @font-face {
-  font-family: Just-Sans;
-  src: url('./fonts/JUST-Sans-Regular.otf');
+  font-family: Oak-Sans;
+  src: url('./fonts/OakSans-Medium.ttf');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Oak-Sans;
+  src: url('./fonts/OakSans-SemiBold.ttf');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Oak-Sans;
+  src: url('./fonts/OakSans-Bold.ttf');
+  font-weight: 700;
+  font-style: normal;
 }
 
 * {
@@ -13,7 +31,7 @@
   padding: 0;
   box-sizing: border-box;
   background-color: #ffffeb;
-  font-family: Just-Sans;
+  font-family: Oak-Sans;
   color: black;
 }
 
@@ -22,21 +40,35 @@ a {
 }
 
 h1 {
-  font-family: Neue-Kabel-Bold;
+  font-family: Oak-Sans;
+  font-weight: 700;
   font-size: 2.75rem;
-  letter-spacing: -2.5px;
   margin-top: 2rem;
   text-align: center;
+  background-color: #f3ec78;
+  background-image: linear-gradient(to right, #f3ec78 30%, #0096ff 50%, #aa23ff 80%);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-text-fill-color: transparent;
 }
 
 h2 {
-  font-family: Just-Sans;
-  font-weight: bold;
+  font-family: Oak-Sans;
+  font-weight: 600;
   font-size: 1.25rem;
 }
 
 h3 {
-  font-family: Just-Sans;
+  font-family: Oak-Sans;
+  font-weight: 600;
+}
+
+h4 {
+  font-family: Oak-Sans;
+  font-weight: 500;
 }
 
 nav {
@@ -57,7 +89,7 @@ nav > ul {
 
 nav a {
   font-size: 1.25rem;
-  font-weight: bold;
+  font-weight: 600;
   border-radius: 30px;
   padding: 0.75rem 1.5rem;
   border: solid black 2px;
@@ -268,7 +300,8 @@ ul#login-page > li {
 
 @media screen and (min-width: 640px) and (max-width: 1200px) {
   h1 {
-    font-family: Neue-Kabel-Bold;
+    font-family: Oak-Sans;
+    font-weight: 700;
     font-size: 4rem;
     margin-top: 3rem;
     text-align: center;
@@ -320,8 +353,9 @@ ul#login-page > li {
 
 @media screen and (min-width: 1200px) {
   h1 {
-    font-family: Neue-Kabel-Bold;
-    font-size: 4.75rem;
+    font-family: Oak-Sans;
+    font-weight: 700;
+    font-size: 3rem;
     margin-top: 3rem;
     text-align: center;
   }
@@ -335,7 +369,7 @@ ul#login-page > li {
   }
   nav a {
     font-size: 1.5rem;
-    padding: 1rem 2rem;
+    padding: 0.75rem 1.5rem;
   }
   #sort-menu {
     width: 82%;
