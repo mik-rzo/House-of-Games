@@ -27,7 +27,7 @@ export interface SingleReviewI {
 
 export interface CommentI {
 	comment_id: number
-	username: string
+	author: string
 	review_id: number
 	votes: number
 	created_at: string
@@ -62,8 +62,8 @@ export function SingleReview() {
 				return getComments(review_id as string)
 			})
 			.then((data) => {
-				data.comments = data.comments.map(async (currComment: object) => {
-					const comment: { [key: string]: any } = { ...currComment }
+				data.comments = data.comments.map(async (currComment: CommentI) => {
+					const comment: CommentI = { ...currComment }
 					comment.created_at = formatDate(comment.created_at)
 					comment.avatar_url = await getUserByUsername(comment.author).then((data) => {
 						return data.user.avatar_url
