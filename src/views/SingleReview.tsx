@@ -11,28 +11,28 @@ import { Alert } from '../components/common/Alert.tsx'
 import { Avatar } from '../components/common/Avatar.tsx'
 import { ThreeDots } from 'react-loading-icons'
 
-interface SingleReviewI {
-	review_id?: number
-	title?: string
-	owner?: string
-	category?: string
-	designer?: string
-	review_img_url?: string
-  review_body?: string
-	created_at?: string
-	votes?: number
-	comment_count?: number
-  avatar_url?: string
+export interface SingleReviewI {
+	review_id: number
+	title: string
+	owner: string
+	category: string
+	designer: string
+	review_img_url: string
+	review_body: string
+	created_at: string
+	votes: number
+	comment_count: number
+	avatar_url: string
 }
 
 export interface CommentI {
-  comment_id?: number
-  author?: string
-  review_id?: number
-  votes?: number
-  created_at?: string
-  body?: string
-  avatar_url?: string
+	comment_id: number
+	username: string
+	review_id: number
+	votes: number
+	created_at: string
+	body: string
+	avatar_url: string
 }
 
 export function SingleReview() {
@@ -40,10 +40,10 @@ export function SingleReview() {
 
 	const [isLoading, setIsLoading] = useState(true)
 
-	const [review, setReview] = useState<SingleReviewI>({})
+	const [review, setReview] = useState<SingleReviewI>({} as SingleReviewI)
 	const [reviewVoteCount, setReviewVoteCount] = useState(0)
 	const [avatarUrl, setAvatarUrl] = useState('')
-	const [comments, setComments] = useState<object[]>([])
+	const [comments, setComments] = useState<CommentI[]>([])
 
 	const [displayAlert, setDisplayAlert] = useState(false)
 

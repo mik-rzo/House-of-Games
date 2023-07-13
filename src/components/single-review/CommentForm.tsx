@@ -3,17 +3,21 @@ import { UserContext } from '../../contexts/User.tsx'
 import { Alert } from '../common/Alert.tsx'
 import { getUserByUsername, postComment } from '../../api.ts'
 import { formatDate } from '../../utils/formatDate.ts'
+import { CommentI } from '../../views/SingleReview.tsx'
+import { SingleReviewI } from '../../views/SingleReview.tsx'
 
 interface CommentFormProps {
-	setComments: React.Dispatch<React.SetStateAction<object[]>>
+	setComments: React.Dispatch<React.SetStateAction<CommentI[]>>
 	reviewID: number
-	setReview: React.Dispatch<React.SetStateAction<object>>
+	setReview: React.Dispatch<React.SetStateAction<SingleReviewI>>
 }
 
-interface CommentI {
-	username: string
-	body: string
-	[key: string]: any
+interface UserResponseI {
+	user: {
+		username: string
+		name: string
+		avatar_url: string
+	}
 }
 
 export function CommentForm({ setComments, reviewID, setReview }: CommentFormProps) {
@@ -24,7 +28,7 @@ export function CommentForm({ setComments, reviewID, setReview }: CommentFormPro
 
 	function handleSubmit(event: FormEvent) {
 		event.preventDefault()
-		const comment: CommentI = {
+		const comment = {
 			username: userLogin.username || '',
 			body: newComment
 		}
@@ -33,12 +37,12 @@ export function CommentForm({ setComments, reviewID, setReview }: CommentFormPro
 			.then((apiResponse) => {
 				return Promise.all([getUserByUsername(userLogin.username as string), apiResponse.data.comment])
 			})
-			.then(([response, comment]: [CommentI, CommentI]) => {
+			.then(([response, comment]: [UserResponseI, CommentI]) => {
 				comment.created_at = formatDate(comment.created_at)
 				comment.avatar_url = response.user.avatar_url
 				setComments((comments) => [comment, ...comments])
 				setReview((currReview) => {
-					const review: { [key: string]: any } = { ...currReview }
+					const review: SingleReviewI = { ...currReview }
 					review.comment_count += 1
 					return review
 				})
