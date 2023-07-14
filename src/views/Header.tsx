@@ -9,7 +9,7 @@ export function Header() {
 		<header className={buttonActive ? 'active' : ''}>
 			<h1>HOUSE OF GAMES</h1>
 			<MenuButton active={buttonActive} onPress={() => setButtonActive(!buttonActive)} />
-			{buttonActive && <NavBar />}
+			<NavBar active={buttonActive} />
 		</header>
 	)
 }

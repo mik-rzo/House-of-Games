@@ -1,7 +1,7 @@
 header {
-  padding-top: 2rem;
-  grid-area: header;
-  background-color: #000014;
+	padding-top: 2rem;
+	grid-area: header;
+	background-color: #000014;
 }
 
 h1 {
@@ -9,61 +9,61 @@ h1 {
 	font-weight: 700;
 	font-size: 2.125rem;
 	text-align: center;
-  color: #ffffeb;
+	color: #ffffeb;
 }
 
 @media screen and (max-width: 640px) {
-  header {
-    padding: 2rem 0.5rem;
-    display: grid;
-    grid-template-areas: 
-    'title button';
-    grid-template-columns: 1fr 48px;
-  }
-  header.active {
-    padding: 2rem 0.5rem;
-    display: grid;
-    grid-template-areas: 
-    'title button'
-    'nav nav';
-    grid-template-columns: 1fr 48px;
-    grid-template-rows: auto auto;
-  }
-  h1 {
-    grid-area: title;
-    align-self: center;
-  }
+	header {
+		padding: 2rem 0.5rem;
+		display: grid;
+		grid-template-areas: 'title button';
+		grid-template-columns: 1fr 48px;
+	}
+	header.active {
+		padding: 2rem 0.5rem;
+		display: grid;
+		grid-template-areas:
+			'title button'
+			'nav nav';
+		grid-template-columns: 1fr 48px;
+		grid-template-rows: auto auto;
+	}
+	h1 {
+		grid-area: title;
+		align-self: center;
+	}
 }
 
 @media screen and (min-width: 640px) and (max-width: 1200px) {
-  header {
-    padding: 2rem;
-    display: grid;
-    grid-template-areas: 'title nav';
-    grid-template-columns: auto 1fr;
-    column-gap: 2rem;
-  }
+	header {
+		padding: 1.5rem;
+		display: grid;
+		grid-template-areas:
+			'title'
+			'nav';
+	}
 	h1 {
-    grid-area: title;
-    align-self: center;
+		grid-area: title;
+    justify-self: center;
 		font-family: Oak-Sans;
 		font-weight: 700;
-		font-size: 4rem;
+		font-size: 3rem;
 		text-align: center;
+		width: max-content;
 	}
 }
 
 @media screen and (min-width: 1200px) {
-  header {
-    padding: 2rem;
-    display: grid;
-    grid-template-areas: 'title nav';
-    grid-template-columns: auto 1fr;
-    column-gap: 2rem;
-  }
+	header {
+		padding: 2rem;
+		display: grid;
+		grid-template-areas: 'title nav';
+		grid-template-columns: auto 1fr;
+		column-gap: 2rem;
+	}
 	h1 {
-    grid-area: title;
-    align-self: center;
+		grid-area: title;
+		align-self: center;
 		font-family: Oak-Sans;
 		font-weight: 700;
 		font-size: 3rem;

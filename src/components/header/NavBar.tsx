@@ -6,7 +6,11 @@ import { Avatar } from '../common/Avatar.tsx'
 
 import './NavBar.css'
 
-export function NavBar() {
+interface NavBarProps {
+	active: boolean
+}
+
+export function NavBar({active}: NavBarProps) {
 	const { userLogin, setUserLogin } = useContext(UserContext)
 
 	function logout() {
@@ -16,7 +20,7 @@ export function NavBar() {
 	}
 
 	return (
-		<nav>
+		<nav className={active ? '' : 'mobile-hide'}>
 			<ul>
 				<li>
 					<Link id='home' to='/'>
