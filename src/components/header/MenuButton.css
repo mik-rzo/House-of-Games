@@ -1,5 +1,7 @@
 #menu-button {
   grid-area: button;
+  background-color: transparent;
+  border: none;
   justify-self: center;
   width: 48px;
   height: 48px;
@@ -8,6 +10,7 @@
 #menu-button .bar1,
 #menu-button .bar2,
 #menu-button .bar3 {
+  margin: 0 auto;
 	width: 35px;
 	height: 5px;
 	background-color: #ffffeb;
