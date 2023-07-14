@@ -7,10 +7,6 @@ button#sort-by-reviews {
   margin-bottom: 1rem;
 }
 
-#sort-menu svg {
-  fill: #ffffeb background-col;
-}
-
 svg.sort-menu-active {
   transform: rotate(-90deg);
   transition: transform 0.25s;
@@ -32,6 +28,11 @@ svg.sort-menu-inactive {
   border-radius: 5px;
   font-family: Oak-Sans;
   font-size: 1rem;
+  text-align: center;
+}
+
+#sort-options select > option {
+  font-family: Oak-Sans, sans-serif;
   text-align: center;
 }
 

@@ -1,0 +1,6 @@
+div#root {
+  display: grid;
+	grid-template-areas:
+		'header'
+		'main';
+}

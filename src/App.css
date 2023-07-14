@@ -1,115 +1,115 @@
 @font-face {
-  font-family: Oak-Sans;
-  src: url('./fonts/OakSans-Regular.ttf');
-  font-weight: 400;
-  font-style: normal;
+	font-family: Oak-Sans;
+	src: url('./fonts/OakSans-Regular.ttf');
+	font-weight: 400;
+	font-style: normal;
 }
 
 @font-face {
-  font-family: Oak-Sans;
-  src: url('./fonts/OakSans-Medium.ttf');
-  font-weight: 500;
-  font-style: normal;
+	font-family: Oak-Sans;
+	src: url('./fonts/OakSans-Medium.ttf');
+	font-weight: 500;
+	font-style: normal;
 }
 
 @font-face {
-  font-family: Oak-Sans;
-  src: url('./fonts/OakSans-SemiBold.ttf');
-  font-weight: 600;
-  font-style: normal;
+	font-family: Oak-Sans;
+	src: url('./fonts/OakSans-SemiBold.ttf');
+	font-weight: 600;
+	font-style: normal;
 }
 
 @font-face {
-  font-family: Oak-Sans;
-  src: url('./fonts/OakSans-Bold.ttf');
-  font-weight: 700;
-  font-style: normal;
+	font-family: Oak-Sans;
+	src: url('./fonts/OakSans-Bold.ttf');
+	font-weight: 700;
+	font-style: normal;
 }
 
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 body {
-  background-color: #ffffeb;
-  font-family: Oak-Sans;
-  color: black;
+	background-color: #ffffeb;
+	font-family: Oak-Sans;
+	color: black;
 }
 
 main {
-  margin: 0 auto;
-  line-height: 1.8;
-  margin-bottom: 2rem;
+  grid-area: main;
+	margin: 1rem auto 2rem;
+	line-height: 1.8;
 }
 
 li {
-  list-style-type: none;
+	list-style-type: none;
 }
 
 img {
-  display: block;
-  width: 100%;
+	display: block;
+	width: 100%;
 }
 
 b {
-  font-weight: 600;
+	font-weight: 600;
 }
 
 .loading {
-  display: block;
-  width: 75px;
-  margin: 2rem auto;
+	display: block;
+	width: 75px;
+	margin: 2rem auto;
 }
 
 .grid-user {
-  width: fit-content;
-  display: grid;
-  grid-template-areas: "username avatar";
-  grid-template-columns: 1fr 50px;
-  column-gap: 0.5em;
+	width: fit-content;
+	display: grid;
+	grid-template-areas: 'username avatar';
+	grid-template-columns: 1fr 50px;
+	column-gap: 0.5em;
 }
 
 .grid-user .username {
-  grid-area: username;
-  align-self: center;
+	grid-area: username;
+	align-self: center;
 }
 
 img.avatar {
-  grid-area: avatar;
-  height: 50px;
-  width: 50px;
-  object-fit: cover;
-  border: solid black 1px;
-  border-radius: 50%;
-  background-color: #ffffff;
+	grid-area: avatar;
+	height: 50px;
+	width: 50px;
+	object-fit: cover;
+	border: solid black 1px;
+	border-radius: 50%;
+	background-color: #ffffff;
 }
 
 .grid-vote {
-  justify-self: right;
-  width: 7em;
-  display: grid;
-  grid-template-areas:
-    'count upvote'
-    'count downvote';
-  grid-template-columns: 5em 30px;
-  grid-template-rows: 1fr 1fr;
+	justify-self: right;
+	width: 7em;
+	display: grid;
+	grid-template-areas:
+		'count upvote'
+		'count downvote';
+	grid-template-columns: 5em 30px;
+	grid-template-rows: 1fr 1fr;
 }
 
 #vote-count {
-  width: fit-content;
-  white-space: nowrap;
-  padding: 0.3em;
-  grid-area: count;
-  justify-self: right;
-  align-self: center;
+	width: fit-content;
+	white-space: nowrap;
+	padding: 0.3em;
+	grid-area: count;
+	justify-self: right;
+	align-self: center;
 }
 
 .flex-center {
-  align-self: center;
+	align-self: center;
 }
 
 .flex-right {
-  align-self: end;
+	align-self: end;
 }

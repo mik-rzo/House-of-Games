@@ -1,35 +1,72 @@
+header {
+  padding-top: 2rem;
+  grid-area: header;
+  background-color: #000014;
+}
+
 h1 {
-  font-family: Oak-Sans;
-  font-weight: 700;
-  font-size: 2.75rem;
-  margin-top: 2rem;
-  text-align: center;
-  /* background-color: #f3ec78;
-  background-image: linear-gradient(to right, #f3ec78 30%, #0096ff 50%, #aa23ff 80%);
-  background-size: 100%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent; 
-  -moz-text-fill-color: transparent; */
+	font-family: Oak-Sans;
+	font-weight: 700;
+	font-size: 2.125rem;
+	text-align: center;
+  color: #ffffeb;
+}
+
+@media screen and (max-width: 640px) {
+  header {
+    padding: 2rem 0.5rem;
+    display: grid;
+    grid-template-areas: 
+    'title button';
+    grid-template-columns: 1fr 48px;
+  }
+  header.active {
+    padding: 2rem 0.5rem;
+    display: grid;
+    grid-template-areas: 
+    'title button'
+    'nav nav';
+    grid-template-columns: 1fr 48px;
+    grid-template-rows: auto auto;
+  }
+  h1 {
+    grid-area: title;
+    align-self: center;
+  }
 }
 
 @media screen and (min-width: 640px) and (max-width: 1200px) {
-  h1 {
-    font-family: Oak-Sans;
-    font-weight: 700;
-    font-size: 4rem;
-    margin-top: 3rem;
-    text-align: center;
+  header {
+    padding: 2rem;
+    display: grid;
+    grid-template-areas: 'title nav';
+    grid-template-columns: auto 1fr;
+    column-gap: 2rem;
   }
+	h1 {
+    grid-area: title;
+    align-self: center;
+		font-family: Oak-Sans;
+		font-weight: 700;
+		font-size: 4rem;
+		text-align: center;
+	}
 }
 
 @media screen and (min-width: 1200px) {
-  h1 {
-    font-family: Oak-Sans;
-    font-weight: 700;
-    font-size: 3rem;
-    margin-top: 3rem;
-    text-align: center;
+  header {
+    padding: 2rem;
+    display: grid;
+    grid-template-areas: 'title nav';
+    grid-template-columns: auto 1fr;
+    column-gap: 2rem;
   }
+	h1 {
+    grid-area: title;
+    align-self: center;
+		font-family: Oak-Sans;
+		font-weight: 700;
+		font-size: 3rem;
+		text-align: center;
+	}
 }
