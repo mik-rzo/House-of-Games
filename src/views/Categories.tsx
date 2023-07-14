@@ -3,6 +3,8 @@ import { getCategories } from '../api.ts'
 import { CategoryCard } from '../components/categories/CategoryCard.tsx'
 import { ThreeDots } from 'react-loading-icons'
 
+import './Categories.css'
+
 export interface CategoryI {
   slug?: string
   description?: string
@@ -29,7 +31,7 @@ export function Categories() {
 
   return (
     <main id='categories-page'>
-      <ul id='categories-page'>
+      <ul id='category-cards'>
         {categories.map((category) => {
           return (
             <li className='category-card' key={category.slug}>

@@ -6,21 +6,23 @@ import { useSearchParams } from 'react-router-dom'
 import { SortByMenu } from '../components/home/SortByMenu.tsx'
 import { ThreeDots } from 'react-loading-icons'
 
+import './Home.css'
+
 interface ReviewI {
-	review_id?: number
-	title?: string
-	owner?: string
-	category?: string
-	designer?: string
-	review_img_url?: string
-	created_at?: string
-	votes?: number
-	comment_count?: number
-	avatar_url?: string
+	review_id: number
+	title: string
+	owner: string
+	category: string
+	designer: string
+	review_img_url: string
+	created_at: string
+	votes: number
+	comment_count: number
+	avatar_url: string
 }
 
 export function Home() {
-	const [reviews, setReviews] = useState<object[]>([])
+	const [reviews, setReviews] = useState<ReviewI[]>([])
 	const [isLoading, setIsLoading] = useState(true)
 
 	const [searchParams] = useSearchParams()
@@ -56,9 +58,9 @@ export function Home() {
 	}
 
 	return (
-		<main>
+		<main id='home-page'>
 			<SortByMenu categoryQuery={categoryQuery} />
-			<ul id='home-page'>
+			<ul id='review-cards'>
 				{reviews.map((review: ReviewI) => {
 					return (
 						<li key={review.review_id} className='review-card'>

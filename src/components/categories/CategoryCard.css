@@ -1,0 +1,12 @@
+li.category-card article {
+  padding: 0.25em;
+}
+
+li.category-card h3 {
+  font-weight: 600;
+}
+
+li.category-card a {
+  text-decoration: none;
+  color: #ffffeb;
+}

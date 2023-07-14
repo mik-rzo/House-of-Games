@@ -6,6 +6,8 @@ import { formatDate } from '../../utils/formatDate.ts'
 import { CommentI } from '../../views/SingleReview.tsx'
 import { SingleReviewI } from '../../views/SingleReview.tsx'
 
+import './CommentForm.css'
+
 interface CommentFormProps {
 	setComments: React.Dispatch<React.SetStateAction<CommentI[]>>
 	reviewID: number

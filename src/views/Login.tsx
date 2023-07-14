@@ -3,6 +3,8 @@ import { getUsers } from '../api.js'
 import { UserCard } from '../components/login/UserCard.js'
 import { ThreeDots } from 'react-loading-icons'
 
+import './Login.css'
+
 export interface UserI {
   username: string
   avatar_url: string
@@ -30,10 +32,10 @@ export function Login() {
 
   return (
     <main id='login-page'>
-      <ul id='login-page'>
+      <ul id='user-cards'>
         {users.map((user) => {
           return (
-            <li key={user.username}>
+            <li key={user.username} className='user-card'>
               <UserCard user={user} />
             </li>
           )

@@ -1,0 +1,26 @@
+.comment-form {
+  width: min(100%, 35rem);
+  margin: 1rem auto 1rem;
+}
+
+.comment-form > textarea {
+  padding: 0.5em;
+  outline: none;
+  resize: none;
+  width: inherit;
+  height: 5rem;
+  font-size: 1rem;
+  font-family: Oak-Sans;
+  background-color: #ffffff;
+  border: solid black 2px;
+  border-radius: 10px;
+}
+
+.comment-form > button {
+  font-size: 1.25rem;
+  border-radius: 20px;
+  padding: 0.5rem 1rem;
+  border: solid black 2px;
+  background-color: #0d642f;
+  color: #ffffeb;
+}

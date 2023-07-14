@@ -11,6 +11,8 @@ import { Alert } from '../components/common/Alert.tsx'
 import { Avatar } from '../components/common/Avatar.tsx'
 import { ThreeDots } from 'react-loading-icons'
 
+import './SingleReview.css'
+
 export interface SingleReviewI {
 	review_id: number
 	title: string
@@ -90,13 +92,13 @@ export function SingleReview() {
 		<main id='single-review-page'>
 			<img src={review.review_img_url} alt={review.title} />
 			<h2>{review.title}</h2>
-			<b>{review.category}</b>
+			<h2>{review.category}</h2>
 			<p>Game created by {review.designer}</p>
 			<div className='grid-user'>
 				<h3 className='flex-center username'>{review.owner}</h3>
 				<Avatar avatarUrl={avatarUrl} />
 			</div>
-			<i className='flex-center'>Posted on {review.created_at}</i>
+			<i>Posted on {review.created_at}</i>
 			<article>
 				<p>{review.review_body}</p>
 			</article>
@@ -119,7 +121,7 @@ export function SingleReview() {
 				<CommentForm setComments={setComments} reviewID={review.review_id as number} setReview={setReview} />
 			)}
 			<p>Comments: {review.comment_count}</p>
-			<ul id='single-review-page'>
+			<ul id='comment-cards'>
 				{comments.map((comment: CommentI) => {
 					return (
 						<li key={comment.comment_id} className='comment-card'>

@@ -1,0 +1,100 @@
+nav {
+  width: 90%;
+  margin: 0 auto 1rem;
+  padding: 1rem 0 0;
+}
+
+nav > ul {
+  width: 60%;
+  height: 15rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 auto;
+}
+
+nav a {
+  width: fit-content;
+  font-size: 1.25rem;
+  font-weight: 600;
+  border-radius: 30px;
+  padding: 0.75rem 1.5rem;
+  border: solid black 2px;
+  box-shadow: -10px 10px #fce205;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}
+
+nav a:hover,
+nav a:active {
+  box-shadow: -5px 5px #fce205;
+}
+
+nav a#home {
+  background-color: #f28edf;
+}
+
+nav a#categories {
+  background-color: #cab1f5;
+}
+
+nav a#login {
+  background-color: #f5f06b;
+}
+
+nav #nav-profile {
+  display: grid;
+  grid-template-columns: 1fr 50px 120px;
+  column-gap: 1em;
+}
+
+nav #nav-profile > b {
+  align-self: center;
+  font-size: 1.25rem;
+}
+
+nav #nav-profile > a {
+  font-size: 1.25rem;
+  background-color: #f5f06b;
+  border-radius: 30px;
+  padding: 0.75rem 1.5rem;
+  border: solid black 2px;
+  box-shadow: -10px 10px #fce205;
+}
+
+nav #nav-profile > a:hover,
+nav #nav-profile > a:active {
+  box-shadow: -5px 5px #fce205;
+}
+
+@media screen and (min-width: 640px) and (max-width: 1200px) {
+  nav > ul {
+    width: 90%;
+    height: 5rem;
+    display: flex;
+    flex-direction: row;
+    gap: 3.5rem;
+    justify-content: center;
+  }
+  nav a {
+    font-size: 1.5rem;
+    padding: 1rem 2rem;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  nav > ul {
+    width: 90%;
+    height: 5rem;
+    display: flex;
+    flex-direction: row;
+    gap: 6.5rem;
+    justify-content: center;
+  }
+  nav a {
+    font-size: 1.5rem;
+    padding: 0.75rem 1.5rem;
+  }
+}

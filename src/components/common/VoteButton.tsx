@@ -1,5 +1,7 @@
 import { patchReviewVote, patchCommentVote } from '../../api.ts'
 
+import './VoteButton.css'
+
 interface VoteButtonProps {
   id: number
   type: string

@@ -1,0 +1,53 @@
+.review-card article {
+  padding: 0.5em; 
+  height: 100%;
+  display: grid;
+  grid-template-areas: 
+  "review-title"
+  "review-genre"
+  "image"
+  "review-overview";
+  grid-template-rows: min-content min-content min-content 1fr;
+  flex-direction: column;
+  align-items: center;
+}
+
+li.review-card h2 {
+  grid-area: review-title;
+  text-align: center;
+  color: #f28edf;
+}
+
+li.review-card h3 {
+  grid-area: review-genre;
+  color: #cab1f5;
+  text-align: center;
+}
+
+img.review-card-img {
+  margin: 0.5em 0 0.5em;
+  grid-area: image;
+  border-radius: 20px;
+  max-width: 410px;
+  max-height: 240px;
+  object-fit: cover;
+}
+
+li.review-card h4 {
+  color: #f5f06b;
+}
+
+section {
+  grid-area: review-overview;
+  align-self: center;
+  width: 100%;
+  padding: 0 1em;
+}
+
+li.review-card p {
+  color: #ffffeb;
+}
+
+li.review-card p:last-child {
+  padding-bottom: 1em;
+}

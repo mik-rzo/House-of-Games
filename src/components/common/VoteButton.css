@@ -1,0 +1,27 @@
+.vote {
+  background-color: transparent;
+  border: none;
+  width: 30px;
+  height: 30px;
+  grid-area: vote;
+}
+
+#upvote {
+  transition: fill 0.5s;
+  grid-area: upvote;
+}
+
+.vote:hover > #upvote,
+.vote:focus > #upvote {
+  fill: #099396;
+}
+
+#downvote {
+  transition: fill 0.5s;
+  grid-area: downvote;
+}
+
+.vote:hover > #downvote,
+.vote:focus > #downvote {
+  fill: #bb3f02;
+}

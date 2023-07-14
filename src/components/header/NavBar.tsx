@@ -4,6 +4,8 @@ import { UserContext } from '../../contexts/User.tsx'
 import { isLoggedOut } from '../../utils/isLoggedOut.ts'
 import { Avatar } from '../common/Avatar.tsx'
 
+import './NavBar.css'
+
 export function NavBar() {
 	const { userLogin, setUserLogin } = useContext(UserContext)
 
@@ -34,8 +36,10 @@ export function NavBar() {
 					</li>
 				) : (
 					<li id='nav-profile'>
-						<b>{userLogin.username}</b>
-						<Avatar avatarUrl={userLogin.avatar_url as string} />
+						<div className='grid-user'>
+							<h4 className='username'>{userLogin.username}</h4>
+							<Avatar avatarUrl={userLogin.avatar_url as string} />
+						</div>
 						<Link to='/' onClick={logout}>
 							Logout
 						</Link>

@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 import { CategoryI } from '../../views/Categories.tsx'
 
+import './CategoryCard.css'
+
 interface CategoryCardProps {
 	category: CategoryI
 }

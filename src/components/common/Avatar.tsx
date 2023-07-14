@@ -3,5 +3,5 @@ interface AvatarProps {
 }
 
 export function Avatar({ avatarUrl }: AvatarProps) {
-  return <img className="avatar flex-center" src={avatarUrl} alt="user avatar" />
+  return <img className="avatar" src={avatarUrl} alt="user avatar" />
 }

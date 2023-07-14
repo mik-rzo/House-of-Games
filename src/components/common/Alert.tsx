@@ -1,3 +1,5 @@
+import './Alert.css'
+
 interface AlertProps {
 	severity: string
 	crud: string
@@ -18,7 +20,7 @@ export function Alert({ severity, crud, setDisplayAlert }: AlertProps): JSX.Elem
 					width='40px'
 					height='40px'
 					viewBox='0 0 100 100'
-					enable-background='new 0 0 100 100'>
+					enableBackground='new 0 0 100 100'>
 					<g>
 						<path
 							d='M91.17,81.374l0.006-0.004l-0.139-0.24c-0.068-0.128-0.134-0.257-0.216-0.375l-37.69-65.283
@@ -46,7 +48,7 @@ export function Alert({ severity, crud, setDisplayAlert }: AlertProps): JSX.Elem
 						width='30px'
 						height='30px'
 						viewBox='0 0 100 100'
-						enable-background='new 0 0 100 100'
+						enableBackground='new 0 0 100 100'
 						xmlSpace='preserve'>
 						<path
 							d='M84.707,68.752L65.951,49.998l18.75-18.752c0.777-0.777,0.777-2.036,0-2.813L71.566,15.295
@@ -93,7 +95,7 @@ export function Alert({ severity, crud, setDisplayAlert }: AlertProps): JSX.Elem
 						width='30px'
 						height='30px'
 						viewBox='0 0 100 100'
-						enable-background='new 0 0 100 100'
+						enableBackground='new 0 0 100 100'
 						xmlSpace='preserve'>
 						<path
 							d='M84.707,68.752L65.951,49.998l18.75-18.752c0.777-0.777,0.777-2.036,0-2.813L71.566,15.295

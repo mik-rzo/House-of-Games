@@ -1,0 +1,31 @@
+#alert {
+  border: dashed black 2px;
+  background-color: #ffffeb;
+  display: grid;
+  grid-template-areas: 'alert-symbol message close';
+  grid-template-columns: 40px 1fr 30px;
+  grid-row: 1;
+  width: fit-content;
+  margin: 0 auto;
+}
+
+#alert svg {
+  grid-area: alert-symbol;
+  fill: black;
+  background-color: #ffffeb;
+}
+
+#alert p {
+  align-self: center;
+  grid-area: message;
+  background-color: #ffffeb;
+  color: black;
+}
+
+#alert button.alert-close {
+  height: 30px;
+  width: 30px;
+  align-self: center;
+  border: none;
+  grid-area: close;
+}

@@ -1,6 +1,8 @@
 import { FormEvent, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
+import './SortByMenu.css'
+
 interface SortByMenuProps {
   categoryQuery: string | null
 }

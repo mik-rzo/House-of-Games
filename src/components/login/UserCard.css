@@ -1,0 +1,24 @@
+li.user-card article {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  align-items: center;
+}
+
+li.user-card h3 {
+  color: #cba324;
+  background-color: black;
+}
+
+li.user-card a {
+  font-size: 1.25rem;
+  text-decoration: none;
+  width: 6.5rem;
+  display: block;
+  border-radius: 20px;
+  border: solid black 2px;
+  background-color: #cba324;
+  color: black;
+  text-align: center;
+  justify-self: center;
+}

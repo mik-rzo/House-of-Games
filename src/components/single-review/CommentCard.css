@@ -1,0 +1,16 @@
+.comment-card .grid-user {
+  margin: 0 auto;
+}
+
+.comment-card h4 {
+  font-weight: 500;
+}
+
+.comment-card .avatar {
+  height: 40px;
+  width: 40px;
+}
+
+.comment-card .grid-vote {
+  margin: 0 auto;
+}

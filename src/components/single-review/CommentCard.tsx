@@ -4,6 +4,8 @@ import { Alert } from '../common/Alert.tsx'
 import { Avatar } from '../common/Avatar.tsx'
 import { CommentI } from '../../views/SingleReview.tsx'
 
+import './CommentCard.css'
+
 interface CommentCardProps {
 	comment: CommentI
 }
@@ -12,12 +14,12 @@ export function CommentCard({ comment }: CommentCardProps) {
 	const [commentVoteCount, setCommentVoteCount] = useState(comment.votes)
 	const [displayAlert, setDisplayAlert] = useState(false)
 	return (
-		<article className='comment-card'>
+		<article>
 			<div className='grid-user'>
 				<h4 className='username'>{comment.author}</h4>
 				<Avatar avatarUrl={comment.avatar_url as string} />
 			</div>
-			<p>{comment.created_at}</p>
+			<i>Posted on {comment.created_at}</i>
 			<p>{comment.body}</p>
 			<div className='grid-vote'>
 				<p id='vote-count'>Votes: {commentVoteCount}</p>
