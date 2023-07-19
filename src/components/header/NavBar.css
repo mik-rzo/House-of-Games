@@ -19,27 +19,43 @@ nav a {
 	border-radius: 30px;
 	padding: 0.75rem 1.5rem;
 	border: solid black 2px;
-	box-shadow: -10px 10px #fce205;
+	box-shadow: 0 5px #ffffeb;
+	transition: box-shadow 0.35s;
 	text-align: center;
 	text-decoration: none;
 	color: black;
 }
 
-nav a:hover,
-nav a:active {
-	box-shadow: -5px 5px #fce205;
+nav a:is(:hover, :focus) {
+	box-shadow: 0 0 #ffffeb;
+}
+
+nav a:focus-visible {
+	outline: none;
 }
 
 nav a#home {
 	background-color: #f28edf;
 }
 
+nav a#home:focus-visible {
+	box-shadow: 0 0 #ffffeb, 0 0 0 5px #000014, 0 0 0 8px #f28edf;
+}
+
 nav a#categories {
 	background-color: #cab1f5;
 }
 
+nav a#categories:focus-visible {
+	box-shadow: 0 0 #ffffeb, 0 0 0 5px #000014, 0 0 0 8px #cab1f5;
+}
+
 nav a#login {
 	background-color: #f5f06b;
+}
+
+nav a#login:focus-visible {
+	box-shadow: 0 0 #ffffeb, 0 0 0 5px #000014, 0 0 0 8px #f5f06b;
 }
 
 nav .username {
@@ -61,7 +77,7 @@ nav #nav-profile .grid-user {
 nav #nav-profile .grid-user h4 {
 	font-size: 1.25rem;
 }
- 
+
 nav #nav-profile > a {
 	grid-area: logout;
 	font-size: 1.25rem;
@@ -78,14 +94,14 @@ nav #nav-profile > a:active {
 }
 
 @media screen and (max-width: 640px) {
-  nav.mobile-hide {
-    display: none;
-  }
-  nav {
-    grid-area: nav;
-    grid-column: span 2;
-    justify-self: center;
-  }
+	nav.mobile-hide {
+		display: none;
+	}
+	nav {
+		grid-area: nav;
+		grid-column: span 2;
+		justify-self: center;
+	}
 }
 
 @media screen and (min-width: 640px) and (max-width: 1200px) {

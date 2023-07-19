@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { useContext } from 'react'
+import { useContext, useRef, MouseEvent } from 'react'
 import { UserContext } from '../../contexts/User.tsx'
 import { isLoggedOut } from '../../utils/isLoggedOut.ts'
 import { Avatar } from '../common/Avatar.tsx'
@@ -10,8 +10,28 @@ interface NavBarProps {
 	active: boolean
 }
 
-export function NavBar({active}: NavBarProps) {
+export function NavBar({ active }: NavBarProps) {
 	const { userLogin, setUserLogin } = useContext(UserContext)
+
+	const homeButton = useRef<HTMLAnchorElement>(null)
+	const categoriesButton = useRef<HTMLAnchorElement>(null)
+	const loginButton = useRef<HTMLAnchorElement>(null)
+
+	function onClick(event: MouseEvent) {
+		if (event.target === homeButton.current) {
+			setTimeout(() => {
+				homeButton.current?.blur()
+			}, 350)
+		} else if (event.target === categoriesButton.current) {
+			setTimeout(() => {
+				categoriesButton.current?.blur()
+			}, 350)
+		} else if (event.target === loginButton.current) {
+			setTimeout(() => {
+				loginButton.current?.blur()
+			}, 350)
+		}
+	}
 
 	function logout() {
 		if (setUserLogin) {
@@ -23,18 +43,18 @@ export function NavBar({active}: NavBarProps) {
 		<nav className={active ? '' : 'mobile-hide'}>
 			<ul>
 				<li>
-					<Link id='home' to='/'>
+					<Link id='home' ref={homeButton} to='/' onClick={onClick}>
 						Home
 					</Link>
 				</li>
 				<li>
-					<Link id='categories' to='/categories'>
+					<Link id='categories' ref={categoriesButton} to='/categories' onClick={onClick}>
 						Categories
 					</Link>
 				</li>
 				{isLoggedOut(userLogin) ? (
 					<li>
-						<Link id='login' to='/login'>
+						<Link id='login' ref={loginButton} to='/login' onClick={onClick}>
 							Login
 						</Link>
 					</li>
