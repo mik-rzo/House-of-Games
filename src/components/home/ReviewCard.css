@@ -14,7 +14,7 @@ li.review-card a {
 	}
 }
 
-li.review-card a:is(:focus-visible, :active) {
+li.review-card a:focus-visible {
 	outline: none;
 	box-shadow: 0 0 #b01355, 0 0 0 5px #ffffeb, 0 0 0 8px #8e1a10;
 }

@@ -22,16 +22,6 @@ li.user-card {
 	}
 }
 
-li.user-card a {
-	box-shadow: 0 0 #cba324;
-	transition: box-shadow 0.3s;
-}
-
-li.user-card a:is(:focus-visible, :active) {
-	outline: none;
-	box-shadow: 0 0 0 5px #000014, 0 0 0 8px #cba324;
-}
-
 @media screen and (min-width: 640px) and (max-width: 1200px) {
 	main#login-page {
 		width: min(90%, 700px);

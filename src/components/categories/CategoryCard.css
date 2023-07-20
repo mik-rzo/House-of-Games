@@ -16,7 +16,7 @@ li.category-card a {
 	}
 }
 
-li.category-card a:is(:focus-visible, :active) {
+li.category-card a:focus-visible {
 	outline: none;
 	box-shadow: 0 0 #23395d, 0 0 0 5px #ffffeb, 0 0 0 8px #524581;
 }

@@ -23,3 +23,13 @@ li.user-card a {
 	text-align: center;
 	justify-self: center;
 }
+
+li.user-card a {
+	box-shadow: 0 0 #cba324;
+	transition: box-shadow 0.3s;
+}
+
+li.user-card a:focus-visible {
+	outline: none;
+	box-shadow: 0 0 0 5px #000014, 0 0 0 8px #cba324;
+}
