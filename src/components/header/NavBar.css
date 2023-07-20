@@ -26,7 +26,13 @@ nav a {
 	color: black;
 }
 
-nav a:is(:hover, :focus) {
+@media (hover: hover) {
+	nav a:hover {
+		box-shadow: 0 0 #ffffeb;
+	}
+}
+
+nav a:focus {
 	box-shadow: 0 0 #ffffeb;
 }
 
@@ -85,12 +91,10 @@ nav #nav-profile > a {
 	border-radius: 30px;
 	padding: 0.75rem 1.5rem;
 	border: solid black 2px;
-	box-shadow: -10px 10px #fce205;
 }
 
-nav #nav-profile > a:hover,
-nav #nav-profile > a:active {
-	box-shadow: -5px 5px #fce205;
+nav #nav-profile > a:focus-visible {
+	box-shadow: 0 0 #ffffeb, 0 0 0 5px #000014, 0 0 0 8px #f5f06b;
 }
 
 @media screen and (max-width: 640px) {
