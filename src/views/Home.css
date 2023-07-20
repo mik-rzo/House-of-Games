@@ -28,18 +28,6 @@ ul#review-cards {
   gap: 1.25rem;
 }
 
-li.review-card {
-  border-radius: 20px;
-  background-color: #8e1a10;
-  box-shadow: -10px 10px #b01355;
-  border: solid black 2px;
-}
-
-li.review-card:hover,
-li.review-card:active {
-  box-shadow: -5px 5px #b01355;
-}
-
 @media screen and (min-width: 640px) and (max-width: 1200px) {
   ul#review-cards {
     display: flex;

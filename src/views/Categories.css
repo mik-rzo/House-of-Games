@@ -18,19 +18,11 @@ main#categories-page {
 
 ul#category-cards {
   display: flex;
+  align-items: stretch;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 1.25rem;
 }
 
-li.category-card {
-  padding: 0.25rem 0.5rem 0.5rem;
-  border: 2px black solid;
-  border-radius: 20px;
-  box-shadow: -10px 10px #23395d;
-  background-color: #524581;
-}
-
-li.category-card:hover,
-li.category-card:active {
-  box-shadow: -5px 5px #23395d;
+ul#category-cards > li {
+  max-width: 100%;
 }

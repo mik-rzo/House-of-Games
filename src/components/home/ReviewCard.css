@@ -1,6 +1,27 @@
-.review-card article {
-  padding: 0.5em; 
+li.review-card a {
   height: 100%;
+  border-radius: 20px;
+  background-color: #8e1a10;
+  border: solid black 2px;
+  box-shadow: 10px 10px #b01355;
+  transition: box-shadow 0.3s;
+  display: inline-block;
+}
+
+@media (hover: hover) {
+	li.review-card a:hover {
+		box-shadow: 0 0 #b01355;
+	}
+}
+
+li.review-card a:focus-visible {
+  outline: none;
+	box-shadow: 0 0 #b01355, 0 0 0 5px #ffffeb, 0 0 0 8px #8e1a10;
+}
+
+.review-card article {
+  height: 100%;
+  padding: 0.5em; 
   display: grid;
   grid-template-areas: 
   "review-title"
@@ -41,7 +62,7 @@ section {
   grid-area: review-overview;
   align-self: center;
   width: 100%;
-  padding: 0 1em;
+  padding: 0 0.5em;
 }
 
 li.review-card p {

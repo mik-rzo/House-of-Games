@@ -11,8 +11,25 @@ li.user-card {
   background-color: black;
   color: #cba324;
   border: solid black 2px;
-  box-shadow: -10px 10px #d1b000;
+  box-shadow: 10px 10px #d1b000;
+  transition: box-shadow 0.3s;
   width: 300px;
+}
+
+@media (hover: hover) {
+	li.user-card:hover {
+		box-shadow: 0 0 #d1b000;
+	}
+}
+
+li.user-card a {
+  box-shadow: 0 0 #cba324;
+  transition: box-shadow 0.3s;
+}
+
+li.user-card a:focus-visible {
+  outline: none;
+	box-shadow: 0 0 0 5px #000014, 0 0 0 8px #cba324;
 }
 
 @media screen and (min-width: 640px) and (max-width: 1200px) {
@@ -27,10 +44,6 @@ li.user-card {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 2rem;
-    justify-content: space-evenly;
-  }
-  ul#login-page > li {
-    flex-basis: 20%;
   }
 }
 
@@ -44,9 +57,5 @@ li.user-card {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 2rem;
-    justify-content: space-evenly;
-  }
-  ul#login-page > li {
-    flex-basis: 20%;
   }
 }
