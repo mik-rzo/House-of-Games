@@ -19,14 +19,17 @@ export function NavBar({ active }: NavBarProps) {
 
 	function onClick(event: MouseEvent) {
 		if (event.target === homeButton.current) {
+			homeButton.current?.focus()
 			setTimeout(() => {
 				homeButton.current?.blur()
 			}, 300)
 		} else if (event.target === categoriesButton.current) {
+			categoriesButton.current?.focus()
 			setTimeout(() => {
 				categoriesButton.current?.blur()
 			}, 300)
 		} else if (event.target === loginButton.current) {
+			loginButton.current?.focus()
 			setTimeout(() => {
 				loginButton.current?.blur()
 			}, 300)
