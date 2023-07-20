@@ -6,41 +6,41 @@ import { ThreeDots } from 'react-loading-icons'
 import './Login.css'
 
 export interface UserI {
-  username: string
-  avatar_url: string
-  name: string
+	username: string
+	avatar_url: string
+	name: string
 }
 
 export function Login() {
-  const [users, setUsers] = useState<UserI[]>([])
-  const [isLoading, setIsLoading] = useState(true)
+	const [users, setUsers] = useState<UserI[]>([])
+	const [isLoading, setIsLoading] = useState(true)
 
-  useEffect(() => {
-    getUsers().then((data) => {
-      setUsers(data.users)
-      setIsLoading(false)
-    })
-  }, [])
+	useEffect(() => {
+		getUsers().then((data) => {
+			setUsers(data.users)
+			setIsLoading(false)
+		})
+	}, [])
 
-  if (isLoading) {
-    return (
-      <>
-        <ThreeDots className='loading' fill='#cba324' width='50' />
-      </>
-    )
-  }
+	if (isLoading) {
+		return (
+			<>
+				<ThreeDots className='loading' fill='#cba324' width='50' />
+			</>
+		)
+	}
 
-  return (
-    <main id='login-page'>
-      <ul id='user-cards'>
-        {users.map((user) => {
-          return (
-            <li key={user.username} className='user-card'>
-              <UserCard user={user} />
-            </li>
-          )
-        })}
-      </ul>
-    </main>
-  )
+	return (
+		<main id='login-page'>
+			<ul id='user-cards'>
+				{users.map((user) => {
+					return (
+						<li key={user.username} className='user-card'>
+							<UserCard user={user} />
+						</li>
+					)
+				})}
+			</ul>
+		</main>
+	)
 }

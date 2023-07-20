@@ -1,5 +1,5 @@
 div#root {
-  display: grid;
+	display: grid;
 	grid-template-areas:
 		'header'
 		'main';

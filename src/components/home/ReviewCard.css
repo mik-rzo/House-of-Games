@@ -1,11 +1,11 @@
 li.review-card a {
-  height: 100%;
-  border-radius: 20px;
-  background-color: #8e1a10;
-  border: solid black 2px;
-  box-shadow: 10px 10px #b01355;
-  transition: box-shadow 0.3s;
-  display: inline-block;
+	height: 100%;
+	border-radius: 20px;
+	background-color: #8e1a10;
+	border: solid black 2px;
+	box-shadow: 10px 10px #b01355;
+	transition: box-shadow 0.3s;
+	display: inline-block;
 }
 
 @media (hover: hover) {
@@ -14,61 +14,61 @@ li.review-card a {
 	}
 }
 
-li.review-card a:focus-visible {
-  outline: none;
+li.review-card a:is(:focus-visible, :active) {
+	outline: none;
 	box-shadow: 0 0 #b01355, 0 0 0 5px #ffffeb, 0 0 0 8px #8e1a10;
 }
 
 .review-card article {
-  height: 100%;
-  padding: 0.5em; 
-  display: grid;
-  grid-template-areas: 
-  "review-title"
-  "review-genre"
-  "image"
-  "review-overview";
-  grid-template-rows: min-content min-content min-content 1fr;
-  flex-direction: column;
-  align-items: center;
+	height: 100%;
+	padding: 0.5em;
+	display: grid;
+	grid-template-areas:
+		'review-title'
+		'review-genre'
+		'image'
+		'review-overview';
+	grid-template-rows: min-content min-content min-content 1fr;
+	flex-direction: column;
+	align-items: center;
 }
 
 li.review-card h2 {
-  grid-area: review-title;
-  text-align: center;
-  color: #f28edf;
+	grid-area: review-title;
+	text-align: center;
+	color: #f28edf;
 }
 
 li.review-card h3 {
-  grid-area: review-genre;
-  color: #cab1f5;
-  text-align: center;
+	grid-area: review-genre;
+	color: #cab1f5;
+	text-align: center;
 }
 
 img.review-card-img {
-  margin: 0.5em 0 0.5em;
-  grid-area: image;
-  border-radius: 20px;
-  max-width: 410px;
-  max-height: 240px;
-  object-fit: cover;
+	margin: 0.5em 0 0.5em;
+	grid-area: image;
+	border-radius: 20px;
+	max-width: 410px;
+	max-height: 240px;
+	object-fit: cover;
 }
 
 li.review-card h4 {
-  color: #f5f06b;
+	color: #f5f06b;
 }
 
 section {
-  grid-area: review-overview;
-  align-self: center;
-  width: 100%;
-  padding: 0 0.5em;
+	grid-area: review-overview;
+	align-self: center;
+	width: 100%;
+	padding: 0 0.5em;
 }
 
 li.review-card p {
-  color: #ffffeb;
+	color: #ffffeb;
 }
 
 li.review-card p:last-child {
-  padding-bottom: 1em;
+	padding-bottom: 1em;
 }

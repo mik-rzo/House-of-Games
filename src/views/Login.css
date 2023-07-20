@@ -1,19 +1,19 @@
 ul#user-cards {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 2rem;
 }
 
 li.user-card {
-  padding: 1em;
-  border-radius: 20px;
-  background-color: black;
-  color: #cba324;
-  border: solid black 2px;
-  box-shadow: 10px 10px #d1b000;
-  transition: box-shadow 0.3s;
-  width: 300px;
+	padding: 1em;
+	border-radius: 20px;
+	background-color: black;
+	color: #cba324;
+	border: solid black 2px;
+	box-shadow: 10px 10px #d1b000;
+	transition: box-shadow 0.3s;
+	width: 300px;
 }
 
 @media (hover: hover) {
@@ -23,39 +23,39 @@ li.user-card {
 }
 
 li.user-card a {
-  box-shadow: 0 0 #cba324;
-  transition: box-shadow 0.3s;
+	box-shadow: 0 0 #cba324;
+	transition: box-shadow 0.3s;
 }
 
-li.user-card a:focus-visible {
-  outline: none;
+li.user-card a:is(:focus-visible, :active) {
+	outline: none;
 	box-shadow: 0 0 0 5px #000014, 0 0 0 8px #cba324;
 }
 
 @media screen and (min-width: 640px) and (max-width: 1200px) {
-  main#login-page {
-    width: min(90%, 700px);
-    display: flex;
-    flex-direction: column;
-  }
-  ul#login-page {
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 2rem;
-  }
+	main#login-page {
+		width: min(90%, 700px);
+		display: flex;
+		flex-direction: column;
+	}
+	ul#login-page {
+		margin-top: 2rem;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 2rem;
+	}
 }
 
 @media screen and (min-width: 1200px) {
-  main#login-page {
-    width: min(75%, 700px);
-  }
-  ul#login-page {
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 2rem;
-  }
+	main#login-page {
+		width: min(75%, 700px);
+	}
+	ul#login-page {
+		margin-top: 2rem;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 2rem;
+	}
 }

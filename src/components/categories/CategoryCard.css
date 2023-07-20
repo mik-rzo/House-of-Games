@@ -1,13 +1,13 @@
 li.category-card a {
-  width: 100%;
+	width: 100%;
 	text-decoration: none;
 	color: #ffffeb;
 	border: 2px black solid;
 	border-radius: 20px;
 	box-shadow: 10px 10px #23395d;
 	background-color: #524581;
-  transition: box-shadow 0.3s;
-  display: inline-block;
+	transition: box-shadow 0.3s;
+	display: inline-block;
 }
 
 @media (hover: hover) {
@@ -16,8 +16,8 @@ li.category-card a {
 	}
 }
 
-li.category-card a:focus-visible {
-  outline: none;
+li.category-card a:is(:focus-visible, :active) {
+	outline: none;
 	box-shadow: 0 0 #23395d, 0 0 0 5px #ffffeb, 0 0 0 8px #524581;
 }
 

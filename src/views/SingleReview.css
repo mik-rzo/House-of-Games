@@ -1,62 +1,62 @@
 main#single-review-page {
-  width: min(90%);
+	width: min(90%);
 	display: flex;
 	flex-direction: column;
 }
 
 main#single-review-page > img {
-  margin-bottom: 0.5em
+	margin-bottom: 0.5em;
 }
 
 main#single-review-page h2 {
-  font-size: 1.5rem;
-  font-weight: 600;
+	font-size: 1.5rem;
+	font-weight: 600;
 }
 
 main#single-review-page h2 + h2 {
-  font-size: 1.25rem;
-  font-weight: 500
+	font-size: 1.25rem;
+	font-weight: 500;
 }
 
 main#single-review-page h3 {
-  font-size: 1em;
-  font-weight: 500;
+	font-size: 1em;
+	font-weight: 500;
 }
 
 main#single-review-page > .grid-user {
-  margin: 0.25em 0;
+	margin: 0.25em 0;
 }
 
 main#single-review-page > .grid-vote {
-  margin-right: 1em;
+	margin-right: 1em;
 }
 
 ul#comment-cards {
-  margin-top: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5em;
+	margin-top: 1rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1.5em;
 }
 
 li.comment-card {
-  padding: 0.75em;
-  border-radius: 20px;
-  background-color: #0d642f;
-  box-shadow: -10px 10px #4ce889;
-  border: solid black 2px;
+	padding: 0.75em;
+	border-radius: 20px;
+	background-color: #0d642f;
+	box-shadow: -10px 10px #4ce889;
+	border: solid black 2px;
 }
 
 li.comment-card > * {
-  color: #ffffeb;
-  background-color: #0d642f;
+	color: #ffffeb;
+	background-color: #0d642f;
 }
 
 li.comment-card h4,
 li.comment-card p,
 li.comment-card svg {
-  fill: #ffffeb;
-  color: #ffffeb;
-  background-color: #0d642f;
+	fill: #ffffeb;
+	color: #ffffeb;
+	background-color: #0d642f;
 }
 
 @media screen and (min-width: 640px) and (max-width: 1200px) {

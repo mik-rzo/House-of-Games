@@ -7,7 +7,8 @@ interface UserLoginI {
 }
 
 interface UserContextI {
-	userLogin: UserLoginI, setUserLogin: (userLogin: UserLoginI) => void
+	userLogin: UserLoginI
+	setUserLogin: (userLogin: UserLoginI) => void
 }
 
 export const UserContext = createContext<UserContextI>({} as UserContextI)

@@ -5,9 +5,9 @@ import { UserProvider } from './contexts/User.tsx'
 import './main.css'
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
-  <BrowserRouter>
-    <UserProvider>
-      <App />
-    </UserProvider>
-  </BrowserRouter>
+	<BrowserRouter>
+		<UserProvider>
+			<App />
+		</UserProvider>
+	</BrowserRouter>
 )

@@ -1,57 +1,57 @@
 main#home-page {
-  width: min(90%);
+	width: min(90%);
 }
 
 main#home-page h2 {
-  font-family: Oak-Sans;
-  font-weight: 600;
-  font-size: 1.25rem;
+	font-family: Oak-Sans;
+	font-weight: 600;
+	font-size: 1.25rem;
 }
 
 main#home-page h3 {
-  font-family: Oak-Sans;
-  font-weight: 600;
+	font-family: Oak-Sans;
+	font-weight: 600;
 }
 
 main#home-page h4 {
-  font-family: Oak-Sans;
-  font-weight: 500;
+	font-family: Oak-Sans;
+	font-weight: 500;
 }
 
 main#home-page a {
-  text-decoration: none;
+	text-decoration: none;
 }
 
 ul#review-cards {
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1.25rem;
 }
 
 @media screen and (min-width: 640px) and (max-width: 1200px) {
-  ul#review-cards {
-    display: flex;
-    gap: 1.25rem;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-    align-items: stretch;
-  }
-  li.review-card {
-    flex-basis: 48%;
-  }
+	ul#review-cards {
+		display: flex;
+		gap: 1.25rem;
+		flex-wrap: wrap;
+		flex-direction: row;
+		justify-content: center;
+		align-items: stretch;
+	}
+	li.review-card {
+		flex-basis: 48%;
+	}
 }
 
 @media screen and (min-width: 1200px) {
-  ul#review-cards {
-    display: flex;
-    gap: 2.5rem;
-    flex-wrap: wrap;
-    flex-direction: row;
-    justify-content: center;
-    align-items: stretch;
-  }
-  li.review-card {
-    flex-basis: 25%;
-  }
+	ul#review-cards {
+		display: flex;
+		gap: 2.5rem;
+		flex-wrap: wrap;
+		flex-direction: row;
+		justify-content: center;
+		align-items: stretch;
+	}
+	li.review-card {
+		flex-basis: 25%;
+	}
 }
