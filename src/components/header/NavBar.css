@@ -19,8 +19,8 @@ nav a {
 	border-radius: 30px;
 	padding: 0.75rem 1.5rem;
 	border: solid black 2px;
-	box-shadow: 0 5px #ffffeb;
-	transition: box-shadow 0.35s;
+	box-shadow: 5px 5px #ffffeb;
+	transition: box-shadow 0.3s;
 	text-align: center;
 	text-decoration: none;
 	color: black;
