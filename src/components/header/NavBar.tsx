@@ -21,15 +21,15 @@ export function NavBar({ active }: NavBarProps) {
 		if (event.target === homeButton.current) {
 			setTimeout(() => {
 				homeButton.current?.blur()
-			}, 350)
+			}, 300)
 		} else if (event.target === categoriesButton.current) {
 			setTimeout(() => {
 				categoriesButton.current?.blur()
-			}, 350)
+			}, 300)
 		} else if (event.target === loginButton.current) {
 			setTimeout(() => {
 				loginButton.current?.blur()
-			}, 350)
+			}, 300)
 		}
 	}
 
