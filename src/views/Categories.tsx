@@ -6,40 +6,40 @@ import { ThreeDots } from 'react-loading-icons'
 import './Categories.css'
 
 export interface CategoryI {
-  slug?: string
-  description?: string
+	slug: string
+	description: string
 }
 
 export function Categories() {
-  const [categories, setCategories] = useState<CategoryI[]>([])
-  const [isLoading, setIsLoading] = useState(true)
+	const [categories, setCategories] = useState<CategoryI[]>([])
+	const [isLoading, setIsLoading] = useState(true)
 
-  useEffect(() => {
-    getCategories().then((data) => {
-      setCategories(data.categories)
-      setIsLoading(false)
-    })
-  }, [])
+	useEffect(() => {
+		getCategories().then((data) => {
+			setCategories(data.categories)
+			setIsLoading(false)
+		})
+	}, [])
 
-  if (isLoading) {
-    return (
-      <>
-        <ThreeDots className='loading' fill='#23395d' width='50' />
-      </>
-    )
-  }
+	if (isLoading) {
+		return (
+			<>
+				<ThreeDots className='loading' fill='#23395d' width='50' />
+			</>
+		)
+	}
 
-  return (
-    <main id='categories-page'>
-      <ul id='category-cards'>
-        {categories.map((category) => {
-          return (
-            <li className='category-card' key={category.slug}>
-              <CategoryCard category={category} />
-            </li>
-          )
-        })}
-      </ul>
-    </main>
-  )
+	return (
+		<main id='categories-page'>
+			<ul id='category-cards'>
+				{categories.map((category) => {
+					return (
+						<li className='category-card' key={category.slug}>
+							<CategoryCard category={category} />
+						</li>
+					)
+				})}
+			</ul>
+		</main>
+	)
 }
