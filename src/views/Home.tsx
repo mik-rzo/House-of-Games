@@ -33,8 +33,8 @@ export function Home() {
 	useEffect(() => {
 		getReviews(categoryQuery, sortByQuery, orderQuery)
 			.then((data) => {
-				data.reviews = data.reviews.map(async (currReview: object) => {
-					const review: { [key: string]: any } = { ...currReview }
+				data.reviews = data.reviews.map(async (currReview: ReviewI) => {
+					const review: ReviewI = { ...currReview }
 					review.created_at = formatDate(review.created_at)
 					review.avatar_url = await getUserByUsername(review.owner).then((data) => {
 						return data.user.avatar_url
