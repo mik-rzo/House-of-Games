@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 const api = axios.create({
-	baseURL: 'https://house-of-games-7nlp.onrender.com/api'
+	baseURL: 'https://house-of-games-api-production.up.railway.app/api'
 })
 
 export function getReviews(categoryQuery: string | null, sortByQuery: string | null, orderQuery: string | null) {
