@@ -1,5 +1,4 @@
 header {
-	padding-top: 2rem;
 	grid-area: header;
 	background-color: #000014;
 }
@@ -14,13 +13,12 @@ h1 {
 
 @media screen and (max-width: 640px) {
 	header {
-		padding: 2rem 0.75rem;
+		padding: 1rem 0.75rem;
 		display: grid;
 		grid-template-areas: 'title button';
 		grid-template-columns: 1fr 48px;
 	}
 	header.active {
-		padding: 2rem 0.5rem;
 		display: grid;
 		grid-template-areas:
 			'title button'
