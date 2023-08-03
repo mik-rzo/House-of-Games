@@ -1,56 +1,92 @@
-button#sort-by-reviews {
-  border: none;
-  background-color: transparent;
+#sort-menu {
+	margin-bottom: 1rem;
 }
 
-#sort-menu {
-  margin-bottom: 1rem;
+main#home-page #sort-menu h2 {
+	font-size: 1.5rem;
+	color: #000014;
+}
+
+button#sort-by-reviews {
+	border: none;
+	background-color: transparent;
+	display: grid;
+	grid-template-areas: 'label arrow';
+	grid-template-columns: max-content max-content;
+}
+
+button#sort-by-reviews h2 {
+	grid-area: label;
+	align-self: center;
+}
+
+button#sort-by-reviews svg {
+	grid-area: arrow;
+	align-self: center;
 }
 
 svg.sort-menu-active {
-  transform: rotate(-90deg);
-  transition: transform 0.25s;
+	transform: rotate(-90deg);
+	transition: transform 0.25s;
 }
 
 svg.sort-menu-inactive {
-  transform: rotate(0deg);
-  transition: transform 0.25s;
+	transform: rotate(0deg);
+	transition: transform 0.25s;
 }
 
 #sort-options {
-  width: fit-content;
-  margin: 0 auto;
+	width: fit-content;
+	margin: 1em auto;
 }
 
 #sort-options select {
-  padding: 0.5em 0.25em;
-  border: solid black 1px;
-  border-radius: 5px;
-  font-family: Oak-Sans;
-  font-size: 1rem;
-  text-align: center;
+	padding: 0.5em 0.25em;
+	border: solid black 1px;
+	border-radius: 5px;
+	font-family: Oak-Sans;
+	font-size: 1rem;
+	text-align: center;
 }
 
 #sort-options select > option {
-  font-family: Oak-Sans, sans-serif;
-  text-align: center;
+	font-family: Oak-Sans, sans-serif;
+	text-align: center;
 }
 
-label#descending {
-  font-size: 1rem;
-  margin-right: 0.5rem;
-}
-
+label#descending,
 label#ascending {
-  font-size: 1rem;
-  margin-right: 0.5rem;
+	font-size: 1rem;
+	margin-right: 0.25rem;
+	height: min-content;
+	align-self: center;
 }
 
 #sort-options > button {
-  font-size: 1.2rem;
-  border-radius: 10px;
-  padding: 0.25rem 0.5rem;
-  border: solid black 2px;
-  background-color: #8e1a10;
-  color: #ffffeb;
+	font-size: 1.25rem;
+	font-family: inherit;
+	font-weight: 500;
+	border-radius: 10px;
+	padding: 0.25rem 0.5rem;
+	border: solid #000014 2px;
+	background-color: #8e1a10;
+	color: #ffffeb;
+	box-shadow: 5px 5px #000014;
+	transition: box-shadow 0.3s;
+}
+
+#sort-options > button:hover {
+	box-shadow: 0 0 #000014;
+	cursor: pointer;
+}
+
+@media screen and (min-width: 640px) {
+	form#sort-options {
+		display: flex;
+		gap: 0.5rem;
+	}
+	label#descending,
+	label#ascending {
+		margin: 0;
+	}
 }
