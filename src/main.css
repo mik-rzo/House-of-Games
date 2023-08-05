@@ -1,6 +1,50 @@
+@font-face {
+	font-family: Oak-Sans;
+	src: url('./fonts/OakSans-Regular.ttf');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: Oak-Sans;
+	src: url('./fonts/OakSans-Medium.ttf');
+	font-weight: 500;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: Oak-Sans;
+	src: url('./fonts/OakSans-SemiBold.ttf');
+	font-weight: 600;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: Oak-Sans;
+	src: url('./fonts/OakSans-Bold.ttf');
+	font-weight: 700;
+	font-style: normal;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body {
+	background-color: #ffffeb;
+	font-family: Oak-Sans;
+	color: black;
+}
+
 div#root {
+	height: 100%;
+	min-height: 100vh;
 	display: grid;
 	grid-template-areas:
 		'header'
-		'main';
+		'main'
+		'footer';
+	grid-template-rows: auto 1fr auto;
 }

@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom'
-import { Header, Home, SingleReview, Categories, Login } from './views/index.ts'
+import { Header, Home, SingleReview, Categories, Login, Footer } from './views/index.ts'
 import './App.css'
 
 function App() {
@@ -12,6 +12,7 @@ function App() {
 				<Route path='/categories' element={<Categories />} />
 				<Route path='/login' element={<Login />} />
 			</Routes>
+			<Footer />
 		</>
 	)
 }
