@@ -38,7 +38,7 @@ ul#review-cards {
 		align-items: stretch;
 	}
 	li.review-card {
-		flex-basis: 420px;
+		flex-basis: min(42vw, 420px);
 		display: grid;
 	}
 }
@@ -53,7 +53,7 @@ ul#review-cards {
 		align-items: stretch;
 	}
 	li.review-card {
-		flex-basis: 420px;
+		flex-basis: min(28vw, 420px);
 		display: grid;
 	}
 }
