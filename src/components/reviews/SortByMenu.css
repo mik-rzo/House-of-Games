@@ -41,17 +41,16 @@ svg.sort-menu-inactive {
 }
 
 #sort-options select {
-	padding: 0.5em 0.25em;
+	padding: 0.5em 0.5em;
+	background-color: #ffffff;
 	border: solid black 1px;
 	border-radius: 5px;
 	font-family: Oak-Sans;
 	font-size: 1rem;
-	text-align: center;
 }
 
 #sort-options select > option {
 	font-family: Oak-Sans, sans-serif;
-	text-align: center;
 }
 
 label#descending,

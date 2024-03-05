@@ -40,11 +40,11 @@ nav a:focus-visible {
 	outline: none;
 }
 
-nav a#home {
+nav a#reviews {
 	background-color: #f28edf;
 }
 
-nav a#home:focus-visible {
+nav a#reviews:focus-visible {
 	box-shadow: 0 0 #ffffeb, 0 0 0 5px #000014, 0 0 0 8px #f28edf;
 }
 

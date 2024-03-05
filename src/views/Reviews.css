@@ -1,24 +1,24 @@
-main#home-page {
+main#reviews-page {
 	width: min(90%);
 }
 
-main#home-page h2 {
+main#reviews-page h2 {
 	font-family: Oak-Sans;
 	font-weight: 600;
 	font-size: 1.25rem;
 }
 
-main#home-page h3 {
+main#reviews-page h3 {
 	font-family: Oak-Sans;
 	font-weight: 600;
 }
 
-main#home-page h4 {
+main#reviews-page h4 {
 	font-family: Oak-Sans;
 	font-weight: 500;
 }
 
-main#home-page a {
+main#reviews-page a {
 	text-decoration: none;
 }
 

@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
 import { getReviews, getUserByUsername } from '../api.ts'
-import { ReviewCard } from '../components/home/ReviewCard.tsx'
+import { ReviewCard } from '../components/reviews/ReviewCard.tsx'
 import { formatDate } from '../utils/formatDate.ts'
 import { useSearchParams } from 'react-router-dom'
-import { SortByMenu } from '../components/home/SortByMenu.tsx'
+import { SortByMenu } from '../components/reviews/SortByMenu.tsx'
 import { ThreeDots } from 'react-loading-icons'
 
-import './Home.css'
+import './Reviews.css'
 
 interface ReviewI {
 	review_id: number
@@ -21,7 +21,7 @@ interface ReviewI {
 	avatar_url: string
 }
 
-export function Home() {
+export function Reviews() {
 	const [reviews, setReviews] = useState<ReviewI[]>([])
 	const [isLoading, setIsLoading] = useState(true)
 
@@ -58,7 +58,7 @@ export function Home() {
 	}
 
 	return (
-		<main id='home-page'>
+		<main id='reviews-page'>
 			<SortByMenu categoryQuery={categoryQuery} />
 			<ul id='review-cards'>
 				{reviews.map((review: ReviewI) => {

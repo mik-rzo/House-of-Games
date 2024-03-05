@@ -13,15 +13,15 @@ interface NavBarProps {
 export function NavBar({ active }: NavBarProps) {
 	const { userLogin, setUserLogin } = useContext(UserContext)
 
-	const homeButton = useRef<HTMLAnchorElement>(null)
+	const reviewsButton = useRef<HTMLAnchorElement>(null)
 	const categoriesButton = useRef<HTMLAnchorElement>(null)
 	const loginButton = useRef<HTMLAnchorElement>(null)
 
 	function onClick(event: MouseEvent) {
-		if (event.target === homeButton.current) {
-			homeButton.current?.focus()
+		if (event.target === reviewsButton.current) {
+			reviewsButton.current?.focus()
 			setTimeout(() => {
-				homeButton.current?.blur()
+				reviewsButton.current?.blur()
 			}, 300)
 		} else if (event.target === categoriesButton.current) {
 			categoriesButton.current?.focus()
@@ -46,8 +46,8 @@ export function NavBar({ active }: NavBarProps) {
 		<nav className={active ? '' : 'mobile-hide'}>
 			<ul>
 				<li>
-					<Link id='home' ref={homeButton} to='/' onClick={onClick}>
-						Home
+					<Link id='reviews' ref={reviewsButton} to='/reviews' onClick={onClick}>
+						Reviews
 					</Link>
 				</li>
 				<li>
