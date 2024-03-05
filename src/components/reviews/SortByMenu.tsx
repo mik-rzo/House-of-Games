@@ -17,9 +17,9 @@ export function SortByMenu({ categoryQuery }: SortByMenuProps) {
 	function handleSubmit(event: FormEvent) {
 		event.preventDefault()
 		if (!categoryQuery) {
-			return navigate(`/?sort_by=${sortByQuery}&order=${orderQuery}`)
+			return navigate(`/reviews?sort_by=${sortByQuery}&order=${orderQuery}`)
 		} else {
-			return navigate(`/?category=${categoryQuery}&sort_by=${sortByQuery}&order=${orderQuery}`)
+			return navigate(`/reviews?category=${categoryQuery}&sort_by=${sortByQuery}&order=${orderQuery}`)
 		}
 	}
 	return (

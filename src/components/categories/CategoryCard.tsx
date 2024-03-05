@@ -9,7 +9,7 @@ interface CategoryCardProps {
 
 export function CategoryCard({ category }: CategoryCardProps) {
 	return (
-		<Link to={`/?category=${category.slug}`}>
+		<Link to={`/reviews?category=${category.slug}`}>
 			<article>
 				<h3>{category.slug}</h3>
 				<p>{category.description}</p>
