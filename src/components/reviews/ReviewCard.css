@@ -21,6 +21,7 @@ li.review-card a:focus-visible {
 
 .review-card article {
 	height: 100%;
+	max-width: 396px;
 	padding: 0.5em;
 	display: grid;
 	grid-template-areas:
@@ -48,8 +49,9 @@ li.review-card h3 {
 img.review-card-img {
 	margin: 0.5em 0 0.5em;
 	grid-area: image;
+	border: 1px solid #ffffeb;
 	border-radius: 20px;
-	max-width: 410px;
+	max-width: 380px;
 	max-height: 240px;
 	object-fit: cover;
 }
