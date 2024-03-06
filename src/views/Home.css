@@ -1,0 +1,11 @@
+main#home-page {
+	width: min(90%);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+main#home-page > p {
+	font-size: 2rem;
+	color: black;
+}

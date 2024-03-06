@@ -1,4 +1,5 @@
 export { Header } from './Header.tsx'
+export { Home } from './Home.tsx'
 export { Reviews } from './Reviews.tsx'
 export { SingleReview } from './SingleReview.tsx'
 export { Categories } from './Categories.tsx'

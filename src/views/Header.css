@@ -3,12 +3,45 @@ header {
 	background-color: #000014;
 }
 
+a#home-button {
+	text-decoration: none;
+	margin: auto;
+	background: linear-gradient(to right, #f28edf, #cab1f5, #f5f06b);
+	background-size: 200% 200%;
+	animation: rainbow 3s ease-in-out infinite;
+	background-clip: text;
+	-webkit-background-clip: text;
+	color: #ffffeb00;
+	transition: color 0.2s ease-in-out;
+}
+
+a#home-button:focus-visible {
+	outline: none;
+	border: 1px solid #000014;
+	box-shadow: 0 0 0 5px #000014, 0 0 0 6px #ffffeb;
+}
+
+a#home-button:is(:hover, :focus-visible) {
+	color: #ffffebff;
+}
+
+@keyframes rainbow {
+	0% {
+		background-position: left;
+	}
+	50% {
+		background-position: right;
+	}
+	100% {
+		background-position: left;
+	}
+}
+
 h1 {
 	font-family: Oak-Sans;
 	font-weight: 700;
 	font-size: 2.125rem;
 	text-align: center;
-	color: #ffffeb;
 }
 
 @media screen and (max-width: 640px) {
